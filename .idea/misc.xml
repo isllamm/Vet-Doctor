@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/full_border_radius_12.xml" value="0.215" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/full_border_radius_24.xml" value="0.215" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/full_border_radius_24_white.xml" value="0.215" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/full_border_radius_36.xml" value="0.1" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/full_border_radius_4.xml" value="0.215" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/full_border_radius_4_blank.xml" value="0.215" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/full_border_radius_8.xml" value="0.215" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/full_border_radius_8_white.xml" value="0.215" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/login_shape.xml" value="0.215" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/login_shape_active.xml" value="0.215" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/register_shape.xml" value="0.215" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/register_shape_active.xml" value="0.215" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/activity_auth.xml" value="0.34782608695652173" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/activity_splash.xml" value="0.34782608695652173" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/dailog_loading.xml" value="0.34782608695652173" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_login.xml" value="0.34782608695652173" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_o_t_p.xml" value="0.34782608695652173" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_register.xml" value="0.34782608695652173" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/toolbar.xml" value="0.34782608695652173" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/toolbar_auth.xml" value="0.18085106382978725" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

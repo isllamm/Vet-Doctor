@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Vet Clinic</string>
+    <string name="welcome">مرحباً بك</string>
+    <string name="login">تسجيل دخول</string>
+    <string name="register">عيادة جديدة</string>
+    <string name="phone_number">رقم الجوال</string>
+    <string name="check_number">تحقق</string>
+    <string name="clinic_name">اسم العيادة</string>
+    <string name="email">البريد الالكتروني</string>
+    <string name="license_number">رقم الرخصة المهنية</string>
+    <string name="address">العنوان</string>
+    <string name="agree_to_the_terms_and_conditions"><u>الموافقة على الشروط والأحكام</u></string>
+
+</resources>
