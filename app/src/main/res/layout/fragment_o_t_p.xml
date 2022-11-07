@@ -11,24 +11,38 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.jkb.vcedittext.VerificationCodeEditText
-            android:id="@+id/ver_code_et"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/_8sdp"
-            android:layout_marginStart="@dimen/_24sdp"
-            android:layout_marginEnd="@dimen/_24sdp"
-            android:inputType="number"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:bottomLineHeight="1dp"
-            app:bottomLineSelectedColor="@color/grey_300"
-            app:figures="4"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:cardCornerRadius="@dimen/_8sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:selectedBackgroundColor="@color/transparent"
-            app:verCodeMargin="@dimen/_12sdp" />
+            app:strokeColor="@color/grey_400"
+            app:strokeWidth="@dimen/_1sdp">
+
+            <com.jkb.vcedittext.VerificationCodeEditText
+                android:id="@+id/ver_code_et"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_gravity="center"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:bottomLineHeight="0.5dp"
+                app:bottomLineNormalColor="@color/grey_800"
+                app:bottomLineSelectedColor="@color/grey_800"
+                app:figures="5"
+                app:selectedBackgroundColor="@color/transparent"
+                app:verCodeMargin="@dimen/_6sdp" />
+        </com.google.android.material.card.MaterialCardView>
+
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/activate_btn"
@@ -43,7 +57,20 @@
             app:cornerRadius="@dimen/_8sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ver_code_et" />
+            app:layout_constraintTop_toBottomOf="@+id/card" />
+
+        <TextView
+            android:id="@+id/tv_resend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:text="@string/resend"
+            android:textColor="@color/light_blue"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activate_btn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

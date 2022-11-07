@@ -12,4 +12,13 @@
     <string name="license_number">license number</string>
     <string name="address">Address</string>
     <string name="agree_to_the_terms_and_conditions">Agree to the terms and conditions</string>
+    <string name="resend">Resend</string>
+    <string name="enter_the_confirmation_code">Enter the confirmation code</string>
+    <string name="an_identification_code_has_been_sent_to_the_mobile_number">An identification code has been sent to the mobile number</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="phone_already_exists">phone already exists</string>
+    <string name="phone_is_required">Phone number is required</string>
+    <string name="password_is_required">Password is required</string>
+
 </resources>

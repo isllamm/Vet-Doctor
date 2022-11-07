@@ -8,7 +8,7 @@ import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.bumptech.glide.Glide
-import com.tawajood.vetclinic.MainActivity
+import com.tawajood.vetclinic.ui.main.MainActivity
 import com.tawajood.vetclinic.R
 import com.tawajood.vetclinic.databinding.ActivityAuthBinding
 import com.tawajood.vetclinic.utils.LoadingUtil
@@ -63,6 +63,17 @@ class AuthActivity : AppCompatActivity() {
                 as NavHostFragment
         navController = navHostFragment.navController
     }
+
+    fun imInOTP(isVisible: Boolean){
+        binding.toolbar.logo.isVisible= !isVisible
+        binding.toolbar.hello.isVisible= !isVisible
+        binding.llAuth.isVisible= !isVisible
+        binding.toolbar.tvEnterCode.isVisible= isVisible
+        binding.toolbar.tvNumber.isVisible= isVisible
+        binding.toolbar.tvMessageSent.isVisible= isVisible
+
+    }
+
 
     private fun setupUI() {
         Glide.with(this)

@@ -11,5 +11,12 @@
     <string name="license_number">رقم الرخصة المهنية</string>
     <string name="address">العنوان</string>
     <string name="agree_to_the_terms_and_conditions"><u>الموافقة على الشروط والأحكام</u></string>
-
+    <string name="resend"><u>إعادة الارسال</u></string>
+    <string name="enter_the_confirmation_code">ادخل رمز الـتأكيد</string>
+    <string name="an_identification_code_has_been_sent_to_the_mobile_number">لقد تم ارسال رمز تعريفى الى رقم الجوال</string>
+    <string name="password">كلمة المرور</string>
+    <string name="confirm_password">تأكيد كلمة المرور</string>
+    <string name="phone_already_exists">رقم الجوال موجود بالفعل</string>
+    <string name="phone_is_required">رقم الهاتف مطلوب</string>
+    <string name="password_is_required">كلمة المرور مطلوبة</string>
 </resources>
