@@ -20,5 +20,28 @@
     <string name="phone_already_exists">phone already exists</string>
     <string name="phone_is_required">Phone number is required</string>
     <string name="password_is_required">Password is required</string>
+    <string name="name_is_required">Name is required</string>
+    <string name="short_pass">Password is too short</string>
+    <string name="password_not_match">Passwords Not Match</string>
+    <string name="email_required">Email is required</string>
+    <string name="address_required">Address is required</string>
+    <string name="license_required">license Number is required</string>
+    <string name="location">Location</string>
+    <string name="confirm">Confirm</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">confirm new password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="menu">Menu</string>
+    <string name="payments">Payments</string>
+    <string name="profile">Profile</string>
+    <string name="technical_support">Technical support</string>
+    <string name="terms_and_conditions">Terms and conditions</string>
+    <string name="about_us">About Us</string>
+    <string name="notifications">Notifications</string>
+    <string name="orders">Orders</string>
+    <string name="share_vet">Share VET</string>
+    <string name="rate_vet">Rate VET</string>
+    <string name="change_language">Change Language</string>
+    <string name="logout">Logout</string>
 
 </resources>

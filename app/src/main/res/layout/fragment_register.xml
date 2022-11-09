@@ -235,7 +235,7 @@
 
 
             <EditText
-                android:id="@+id/Cpassword_et"
+                android:id="@+id/cPassword_et"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"
@@ -272,7 +272,6 @@
             android:layout_marginEnd="@dimen/_8sdp"
             android:background="@drawable/full_border_radius_12"
             android:orientation="horizontal"
-            android:weightSum="5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3">
@@ -292,6 +291,8 @@
                 android:textDirection="ltr"
                 android:textSize="@dimen/_12ssp" />
 
+
+
         </LinearLayout>
 
         <TextView
@@ -307,7 +308,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ll_license_num" />
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/ll_address"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
@@ -336,7 +337,16 @@
                 android:textDirection="ltr"
                 android:textSize="@dimen/_12ssp" />
 
-        </LinearLayout>
+            <ImageView
+                android:id="@+id/iv_loc"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:src="@drawable/ic_my_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/ll_terms"
@@ -351,8 +361,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ll_address">
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switch1"
+                android:checked="false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|start" />

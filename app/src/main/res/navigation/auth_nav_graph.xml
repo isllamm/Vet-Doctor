@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_OTPFragment"
+            app:destination="@id/OTPFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -25,5 +28,14 @@
         android:id="@+id/OTPFragment"
         android:name="com.tawajood.vetclinic.ui.auth.fragments.OTPFragment"
         android:label="fragment_o_t_p"
-        tools:layout="@layout/fragment_o_t_p" />
+        tools:layout="@layout/fragment_o_t_p" >
+        <action
+            android:id="@+id/action_OTPFragment_to_forgetPasswordFragment"
+            app:destination="@id/forgetPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgetPasswordFragment"
+        android:name="com.tawajood.vetclinic.ui.auth.fragments.ForgetPasswordFragment"
+        android:label="fragment_forget_password"
+        tools:layout="@layout/fragment_forget_password" />
 </navigation>

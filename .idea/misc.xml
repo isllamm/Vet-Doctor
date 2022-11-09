@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/bottom_bg.xml" value="0.215" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/bottom_nav_bg.xml" value="0.215" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/full_border_radius_12.xml" value="0.215" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/full_border_radius_24.xml" value="0.215" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/full_border_radius_24_white.xml" value="0.215" />
@@ -16,13 +18,21 @@
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/register_shape.xml" value="0.215" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/register_shape_active.xml" value="0.215" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/activity_auth.xml" value="0.34782608695652173" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/activity_main.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/activity_splash.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/dailog_loading.xml" value="0.34782608695652173" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_about_us.xml" value="0.34782608695652173" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_forget_password.xml" value="0.34782608695652173" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_item_list.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_login.xml" value="0.34782608695652173" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_menu.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_o_t_p.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_register.xml" value="0.34782608695652173" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_support.xml" value="0.34782608695652173" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_terms.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/toolbar.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/toolbar_auth.xml" value="0.33" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/menu/main_menu.xml" value="0.75" />
       </map>
     </option>
   </component>

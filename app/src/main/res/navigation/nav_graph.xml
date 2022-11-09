@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menuFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.tawajood.vetclinic.ui.main.menu.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" />
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="com.tawajood.vetclinic.ui.main.about_us.AboutUsFragment"
+        android:label="fragment_about_us"
+        tools:layout="@layout/fragment_about_us" />
+    <fragment
+        android:id="@+id/termsFragment"
+        android:name="com.tawajood.vetclinic.ui.main.terms.TermsFragment"
+        android:label="fragment_terms"
+        tools:layout="@layout/fragment_terms" />
+    <fragment
+        android:id="@+id/supportFragment"
+        android:name="com.tawajood.vetclinic.ui.main.support.SupportFragment"
+        android:label="fragment_support"
+        tools:layout="@layout/fragment_support" />
+</navigation>

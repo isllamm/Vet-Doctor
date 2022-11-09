@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.tawajood.vetclinic.R
 import com.tawajood.vetclinic.databinding.ActivityMainBinding
 import com.tawajood.vetclinic.ui.auth.AuthActivity
@@ -27,6 +29,24 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         loadingUtil = LoadingUtil(this)
+
+        onClick()
+        setupNavController()
+
+    }
+
+    private fun onClick() {
+        binding.toolbar.ivBack.setOnClickListener {
+            onBackPressed()
+        }
+    }
+
+    private fun setupNavController() {
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
+                as NavHostFragment
+        navController = navHostFragment.navController
+
+        binding.bottomNavView.setupWithNavController(navController)
     }
 
     fun logout() {
@@ -45,5 +65,9 @@ class MainActivity : AppCompatActivity() {
 
     fun hideLoading() {
         loadingUtil.hideLoading()
+    }
+
+    fun setTitle(title: String) {
+        binding.toolbar.title.text = title
     }
 }

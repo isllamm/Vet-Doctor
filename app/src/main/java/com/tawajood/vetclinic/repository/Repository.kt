@@ -19,5 +19,25 @@ constructor(private val api: RetrofitApi) {
     suspend fun checkPhone(countryCode: String, phone: String, security: String) =
         api.checkPhone(PrefsHelper.getLanguage(), countryCode, phone, security)
 
+    suspend fun forgetPassword(
+        countryCode: String,
+        phone: String,
+        password: String,
+        forgetcode: String,
+        security: String
+    ) =
+        api.forgetPassword(
+            PrefsHelper.getLanguage(),
+            countryCode,
+            phone,
+            password,
+            forgetcode,
+            security
+        )
+
+    suspend fun aboutUs() = api.aboutUs(PrefsHelper.getLanguage())
+    suspend fun terms() = api.terms(PrefsHelper.getLanguage())
+    suspend fun contact() = api.contactUs(PrefsHelper.getLanguage())
+
 
 }

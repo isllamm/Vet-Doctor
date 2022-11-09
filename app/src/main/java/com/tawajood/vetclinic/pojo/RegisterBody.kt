@@ -9,7 +9,7 @@ data class RegisterBody(
     var phone: String,
     var email: String,
     var address: String,
-    @SerializedName("registration number")
+    @SerializedName("registration_number")
     var registrationNumber: String,
     var password: String,
 )

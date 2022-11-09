@@ -12,6 +12,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.tawajood.vetclinic.R
 import com.tawajood.vetclinic.databinding.ActivitySplashBinding
 import com.tawajood.vetclinic.ui.auth.AuthActivity
+import com.tawajood.vetclinic.ui.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @SuppressLint("CustomSplashScreen")
@@ -36,7 +37,15 @@ class SplashActivity : AppCompatActivity() {
 
         Handler(Looper.myLooper()!!).postDelayed({
 
-            startActivity(Intent(this, AuthActivity::class.java))
+            if (PrefsHelper.isFirst()) {
+                startActivity(Intent(this, AuthActivity::class.java))
+            } else {
+                if (PrefsHelper.getToken().isEmpty()) {
+                    startActivity(Intent(this, AuthActivity::class.java))
+                } else {
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
+            }
 
 
             finish()

@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.tawajood.vetclinic.R
 import com.tawajood.vetclinic.databinding.FragmentLoginBinding
+import com.tawajood.vetclinic.pojo.User
 import com.tawajood.vetclinic.ui.auth.AuthActivity
 import com.tawajood.vetclinic.ui.auth.AuthViewModel
 import com.tawajood.vetclinic.utils.Resource
@@ -35,6 +36,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
 
     private fun onClick() {
+        binding.tvForget.setOnClickListener {
+
+        }
         binding.btnCheck.setOnClickListener {
             if (validate()) {
 
@@ -83,10 +87,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     }
                     is Resource.Loading -> parent.showLoading()
                     is Resource.Success -> {
-                        Log.i("islam", "ana hena")
-                        val user = it.data!!
-                        PrefsHelper.setToken(user.token)
+
+                        PrefsHelper.setToken(it.data!!.token)
+
                         PrefsHelper.setFirst(false)
+
                         parent.gotoMain()
                     }
                 }

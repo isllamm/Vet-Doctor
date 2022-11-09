@@ -1,10 +1,7 @@
 package com.tawajood.vetclinic.api
 
 
-import com.tawajood.vetclinic.pojo.Exist
-import com.tawajood.vetclinic.pojo.MainResponse
-import com.tawajood.vetclinic.pojo.RegisterBody
-import com.tawajood.vetclinic.pojo.UserResponse
+import com.tawajood.vetclinic.pojo.*
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 
@@ -17,12 +14,11 @@ interface RetrofitApi {
         const val BASE_URL = "https://vet.horizon.net.sa/api-clinic/"
     }
 
-    @FormUrlEncoded
     @POST("auth/register")
     suspend fun register(
         @Header("lang") lang: String,
         @Body registerBody: RegisterBody
-    ): Response<MainResponse<UserResponse>>
+    ): Response<MainResponse<Token>>
 
     @FormUrlEncoded
     @POST("auth/login")
@@ -31,7 +27,7 @@ interface RetrofitApi {
         @Field("country_code") countryCode: String,
         @Field("phone") phone: String,
         @Field("password") password: String
-    ): Response<MainResponse<UserResponse>>
+    ): Response<MainResponse<Token>>
 
 
     @FormUrlEncoded
@@ -43,5 +39,30 @@ interface RetrofitApi {
         @Field("security") security: String,
     ): Response<MainResponse<Exist>>
 
+    @FormUrlEncoded
+    @POST("auth/forget-password")
+    suspend fun forgetPassword(
+        @Header("lang") lang: String,
+        @Field("country_code") countryCode: String,
+        @Field("phone") phone: String,
+        @Field("password") password: String,
+        @Field("forgetcode") forgetcode: String,
+        @Field("security") security: String,
+    ): Response<MainResponse<Any>>
 
+
+    @GET("footer/about-us")
+    suspend fun aboutUs(
+        @Header("lang") lang: String,
+    ): Response<MainResponse<About>>
+
+    @GET("footer/terms")
+    suspend fun terms(
+        @Header("lang") lang: String,
+    ): Response<MainResponse<Terms>>
+
+    @GET("footer/contact-us")
+    suspend fun contactUs(
+        @Header("lang") lang: String,
+    ): Response<MainResponse<ContactUsResponse>>
 }
