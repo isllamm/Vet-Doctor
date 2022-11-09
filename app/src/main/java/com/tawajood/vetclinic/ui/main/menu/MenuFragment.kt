@@ -45,6 +45,9 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         binding.clSupport.setOnClickListener {
             parent.navController.navigate(R.id.supportFragment)
         }
+        binding.btnMoney.setOnClickListener {
+            parent.navController.navigate(R.id.paymentsFragment)
+        }
     }
 
     private fun setupUI() {

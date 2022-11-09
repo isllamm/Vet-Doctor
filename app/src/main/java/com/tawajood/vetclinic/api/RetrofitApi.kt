@@ -65,4 +65,21 @@ interface RetrofitApi {
     suspend fun contactUs(
         @Header("lang") lang: String,
     ): Response<MainResponse<ContactUsResponse>>
+
+    @GET("profile/withdraw/withdraw-show")
+    suspend fun getWithdraws(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+    ): Response<MainResponse<PaymentsResponse>>
+
+    @FormUrlEncoded
+    @POST("profile/withdraw/withdraw-money")
+    suspend fun withdraw(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+        @Field("price") price: String,
+        @Field("account_owner_name") account_owner_name: String,
+        @Field("bank_id") bank_id: String,
+        @Field("account_number") account_number: String,
+    ): Response<MainResponse<Any>>
 }

@@ -43,5 +43,13 @@
     <string name="rate_vet">Rate VET</string>
     <string name="change_language">Change Language</string>
     <string name="logout">Logout</string>
+    <string name="pending_amount">Pending Amount</string>
+    <string name="amount_to_be_withdrawn">Amount to be withdrawn</string>
+    <string name="bank_data">bank data</string>
+    <string name="bank_name">Bank Name</string>
+    <string name="account_owner_name">account owner name</string>
+    <string name="account_number">Account Number</string>
+    <string name="withdraw">Withdraw</string>
+    <string name="amount_available_to_withdraw">Amount available to withdraw</string>
 
 </resources>

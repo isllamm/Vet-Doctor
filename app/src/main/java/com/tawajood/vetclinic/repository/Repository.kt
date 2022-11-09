@@ -39,5 +39,19 @@ constructor(private val api: RetrofitApi) {
     suspend fun terms() = api.terms(PrefsHelper.getLanguage())
     suspend fun contact() = api.contactUs(PrefsHelper.getLanguage())
 
+    suspend fun getWithdraws() = api.getWithdraws(PrefsHelper.getLanguage(), PrefsHelper.getToken())
 
+    suspend fun withdraw(
+        price: String,
+        accountOwnerName: String,
+        bankId: String,
+        accountNumber: String
+    ) = api.withdraw(
+        PrefsHelper.getLanguage(),
+        PrefsHelper.getToken(),
+        price,
+        accountOwnerName,
+        bankId,
+        accountNumber
+    )
 }
