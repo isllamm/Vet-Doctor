@@ -54,4 +54,7 @@ constructor(private val api: RetrofitApi) {
         bankId,
         accountNumber
     )
+
+    suspend fun getProfile() = api.getProfile(PrefsHelper.getLanguage(), PrefsHelper.getToken())
+
 }

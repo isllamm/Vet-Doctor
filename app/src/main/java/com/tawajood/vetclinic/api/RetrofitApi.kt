@@ -82,4 +82,11 @@ interface RetrofitApi {
         @Field("bank_id") bank_id: String,
         @Field("account_number") account_number: String,
     ): Response<MainResponse<Any>>
+
+
+    @GET("profile/profile/show")
+    suspend fun getProfile(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+    ): Response<MainResponse<ProfileResponse>>
 }

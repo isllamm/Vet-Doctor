@@ -30,4 +30,14 @@
         android:name="com.tawajood.vetclinic.ui.main.payments.PaymentsFragment"
         android:label="fragment_payments"
         tools:layout="@layout/fragment_payments" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.tawajood.vetclinic.ui.main.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.tawajood.vetclinic.ui.main.profile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
 </navigation>

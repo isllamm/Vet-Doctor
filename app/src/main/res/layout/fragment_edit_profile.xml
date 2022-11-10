@@ -1,28 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.auth.fragments.RegisterFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
+    tools:context=".ui.main.profile.EditProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/img_clinic"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:src="@drawable/test"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="@dimen/_40sdp" />
+
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:gravity="center"
+            android:text="عيادة فيتلوجى"
+            android:textColor="@color/dark_blue"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_clinic" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_12sdp"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_12sdp"
             android:text="@string/clinic_name"
             android:textColor="@color/light_black"
             android:textSize="@dimen/_12ssp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
         <LinearLayout
             android:id="@+id/ll_clinicName"
@@ -39,18 +64,16 @@
             app:layout_constraintTop_toBottomOf="@+id/textView">
 
 
-            <EditText
+            <TextView
                 android:id="@+id/clinicName_et"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"
+                android:gravity="center|start"
                 android:hint="@string/clinic_name"
                 android:importantForAutofill="no"
-                android:inputType="textPersonName"
                 android:paddingHorizontal="@dimen/_8sdp"
-                android:textAlignment="viewStart"
                 android:textColor="@color/light_black"
-                android:textDirection="ltr"
                 android:textSize="@dimen/_12ssp" />
 
         </LinearLayout>
@@ -102,16 +125,15 @@
                 android:layout_margin="@dimen/_4sdp"
                 android:background="@color/grey_300" />
 
-            <EditText
+            <TextView
                 android:id="@+id/phone_et"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3.5"
                 android:background="@null"
+                android:gravity="center|start"
                 android:hint="50xxxxxxxxxxxx"
                 android:importantForAutofill="no"
-                android:inputType="phone"
-                android:textAlignment="viewStart"
                 android:textColor="@color/light_black"
                 android:textDirection="ltr"
                 android:textSize="@dimen/_12ssp" />
@@ -146,106 +168,16 @@
             app:layout_constraintTop_toBottomOf="@+id/textView2">
 
 
-            <EditText
+            <TextView
                 android:id="@+id/email_et"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"
+                android:gravity="start|center"
                 android:hint="@string/email"
                 android:importantForAutofill="no"
-                android:inputType="textEmailAddress"
                 android:paddingHorizontal="@dimen/_8sdp"
-                android:textAlignment="viewStart"
                 android:textColor="@color/light_black"
-                android:textDirection="ltr"
-                android:textSize="@dimen/_12ssp" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginStart="@dimen/_12sdp"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:text="@string/password"
-            android:textColor="@color/light_black"
-            android:textSize="@dimen/_12ssp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ll_email" />
-
-        <LinearLayout
-            android:id="@+id/ll_password"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:background="@drawable/full_border_radius_12"
-            android:orientation="horizontal"
-            android:weightSum="5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView12">
-
-
-            <EditText
-                android:id="@+id/password_et"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@null"
-                android:hint="@string/password"
-                android:importantForAutofill="no"
-                android:inputType="textPassword"
-                android:paddingHorizontal="@dimen/_8sdp"
-                android:textAlignment="viewStart"
-                android:textColor="@color/light_black"
-                android:textDirection="ltr"
-                android:textSize="@dimen/_12ssp" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView112"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginStart="@dimen/_12sdp"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:text="@string/confirm_password"
-            android:textColor="@color/light_black"
-            android:textSize="@dimen/_12ssp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ll_password" />
-
-        <LinearLayout
-            android:id="@+id/ll_Cpassword"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:background="@drawable/full_border_radius_12"
-            android:orientation="horizontal"
-            android:weightSum="5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView112">
-
-
-            <EditText
-                android:id="@+id/cPassword_et"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@null"
-                android:hint="@string/confirm_password"
-                android:importantForAutofill="no"
-                android:inputType="textPassword"
-                android:paddingHorizontal="@dimen/_8sdp"
-                android:textAlignment="viewStart"
-                android:textColor="@color/light_black"
-                android:textDirection="ltr"
                 android:textSize="@dimen/_12ssp" />
 
         </LinearLayout>
@@ -261,7 +193,7 @@
             android:textColor="@color/light_black"
             android:textSize="@dimen/_12ssp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ll_Cpassword" />
+            app:layout_constraintTop_toBottomOf="@+id/ll_email" />
 
         <LinearLayout
             android:id="@+id/ll_license_num"
@@ -277,20 +209,17 @@
             app:layout_constraintTop_toBottomOf="@+id/textView3">
 
 
-            <EditText
+            <TextView
                 android:id="@+id/license_num_et"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"
                 android:hint="@string/license_number"
                 android:importantForAutofill="no"
-                android:inputType="number"
+                android:gravity="center|start"
                 android:paddingHorizontal="@dimen/_8sdp"
-                android:textAlignment="viewStart"
                 android:textColor="@color/light_black"
-                android:textDirection="ltr"
                 android:textSize="@dimen/_12ssp" />
-
 
 
         </LinearLayout>
@@ -323,77 +252,124 @@
             app:layout_constraintTop_toBottomOf="@+id/textView4">
 
 
-            <EditText
+            <TextView
                 android:id="@+id/address_et"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"
+                android:gravity="start|center"
                 android:hint="@string/address"
+                android:layout_toStartOf="@+id/iv_loc"
                 android:importantForAutofill="no"
-                android:inputType="text"
                 android:paddingHorizontal="@dimen/_8sdp"
-                android:textAlignment="viewStart"
                 android:textColor="@color/light_black"
-                android:textDirection="ltr"
                 android:textSize="@dimen/_12ssp" />
 
             <ImageView
                 android:id="@+id/iv_loc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/_12sdp"
-                android:src="@drawable/ic_my_location"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:src="@drawable/ic_my_location" />
 
         </RelativeLayout>
 
-        <LinearLayout
-            android:id="@+id/ll_terms"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:orientation="horizontal"
-            android:weightSum="5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ll_address">
-
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switch1"
-                android:checked="false"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center|start" />
-
-            <TextView
-                android:id="@+id/tv_terms"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_8sdp"
-                android:text="@string/agree_to_the_terms_and_conditions"
-                android:textSize="@dimen/_10ssp" />
-
-        </LinearLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_check"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_24sdp"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:backgroundTint="@color/light_green"
-            android:text="@string/check_number"
-            android:textAllCaps="false"
+        <TextView
+            android:id="@+id/textView41"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:text="@string/specializations"
             android:textColor="@color/light_black"
             android:textSize="@dimen/_12ssp"
-            app:cornerRadius="@dimen/_8sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_address" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_specializations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ll_terms" />
+            app:layout_constraintTop_toBottomOf="@+id/textView41"
+            tools:listitem="@layout/item_specialization" />
+
+        <TextView
+            android:id="@+id/textView42"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:text="@string/another_images_for_the_clinic"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_specializations" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_images"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView42"
+            tools:listitem="@layout/item_clinic_image" />
+
+        <TextView
+            android:id="@+id/textView43"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:text="@string/clinic_timings"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_images" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_times"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView43"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_clinic_times" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_edit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:backgroundTint="@color/blue_app"
+            android:text="@string/save"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:cornerRadius="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_times" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </ScrollView>

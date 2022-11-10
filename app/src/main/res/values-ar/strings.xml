@@ -50,5 +50,12 @@
     <string name="account_number">رقم الحساب</string>
     <string name="withdraw">سحب المبلغ</string>
     <string name="amount_available_to_withdraw">المبلغ المتاح سحبه</string>
+    <string name="examination_fee">رسوم الكشف</string>
+    <string name="specializations">التخصصات</string>
+    <string name="another_images_for_the_clinic">صور أخرى للعيادة</string>
+    <string name="clinic_timings">مواعيد العيادة</string>
+    <string name="edit_profile">تعديل الحساب</string>
+    <string name="delete_account"><u>حذف الحساب</u></string>
+    <string name="save">Save</string>
 
 </resources>
