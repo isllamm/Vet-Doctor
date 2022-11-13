@@ -89,13 +89,14 @@ class PaymentsFragment : Fragment(R.layout.fragment_payments) {
                 parent.hideLoading()
                 when (it) {
                     is Resource.Error -> {
-                        ToastUtils.showToast(requireContext(), it.message.toString())
+                        parent.navController.navigate(R.id.failedProcessFragment)
                     }
                     is Resource.Idle -> {
 
                     }
                     is Resource.Loading -> parent.showLoading()
                     is Resource.Success -> {
+                        parent.navController.navigate(R.id.successfulProcessFragment)
                     }
                 }
             }
@@ -104,6 +105,8 @@ class PaymentsFragment : Fragment(R.layout.fragment_payments) {
 
     private fun setupUI() {
         parent.setTitle(getString(R.string.payments))
+        parent.showBottomNav(false)
+
     }
 
 

@@ -22,6 +22,9 @@ constructor(
     private val _profile = MutableStateFlow<Resource<ProfileResponse>>(Resource.Idle())
     val profile = _profile.asSharedFlow()
 
+    private val _deleteAccount = MutableStateFlow<Resource<Any>>(Resource.Idle())
+    val deleteAccount = _deleteAccount.asSharedFlow()
+
     init {
         getProfile()
     }
@@ -37,6 +40,20 @@ constructor(
             }
         } catch (e: Exception) {
             _profile.emit(Resource.Error(message = e.message!!))
+        }
+    }
+
+    fun deleteAccount() = viewModelScope.launch {
+        try {
+            _deleteAccount.emit(Resource.Loading())
+            val response = handleResponse(repository.deleteAccount())
+            if (response.status) {
+                _deleteAccount.emit(Resource.Success(response.data!!))
+            } else {
+                _deleteAccount.emit(Resource.Error(message = response.msg))
+            }
+        } catch (e: Exception) {
+            _deleteAccount.emit(Resource.Error(message = e.message!!))
         }
     }
 }

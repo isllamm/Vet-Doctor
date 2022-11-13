@@ -56,6 +56,8 @@ class AboutUsFragment : Fragment(R.layout.fragment_about_us) {
 
     private fun setupUI() {
         parent.setTitle(getString(R.string.about_us))
+        parent.showBottomNav(false)
+
     }
 
 

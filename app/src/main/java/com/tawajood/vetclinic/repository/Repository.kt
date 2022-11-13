@@ -56,5 +56,18 @@ constructor(private val api: RetrofitApi) {
     )
 
     suspend fun getProfile() = api.getProfile(PrefsHelper.getLanguage(), PrefsHelper.getToken())
+    suspend fun deleteAccount() =
+        api.deleteAccount(PrefsHelper.getLanguage(), PrefsHelper.getToken())
 
+    suspend fun getNotifications() =
+        api.getNotifications(PrefsHelper.getLanguage(), PrefsHelper.getToken())
+
+    suspend fun getPreviousConsultants() =
+        api.getPreviousConsultants(PrefsHelper.getLanguage(), PrefsHelper.getToken())
+
+    suspend fun getCurrentConsultants() =
+        api.getCurrentConsultants(PrefsHelper.getLanguage(), PrefsHelper.getToken())
+
+    suspend fun getNewConsultants() =
+        api.getNewConsultants(PrefsHelper.getLanguage(), PrefsHelper.getToken())
 }

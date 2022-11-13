@@ -40,4 +40,29 @@
         android:name="com.tawajood.vetclinic.ui.main.profile.EditProfileFragment"
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.tawajood.vetclinic.ui.main.notifications.NotificationsFragment"
+        android:label="fragment_notifications"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.tawajood.vetclinic.ui.main.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/successfulProcessFragment"
+        android:name="com.tawajood.vetclinic.ui.main.payments.SuccessfulProcessFragment"
+        android:label="fragment_successful_process"
+        tools:layout="@layout/fragment_successful_process" />
+    <fragment
+        android:id="@+id/failedProcessFragment"
+        android:name="com.tawajood.vetclinic.ui.main.payments.FailedProcessFragment"
+        android:label="fragment_failed_process"
+        tools:layout="@layout/fragment_failed_process" />
+    <fragment
+        android:id="@+id/myConsultantsFragment"
+        android:name="com.tawajood.vetclinic.ui.main.consultants.MyConsultantsFragment"
+        android:label="fragment_my_consultants"
+        tools:layout="@layout/fragment_my_consultants" />
 </navigation>

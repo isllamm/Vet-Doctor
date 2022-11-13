@@ -107,6 +107,8 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     private fun setupUI() {
         parent.setTitle(getString(R.string.profile))
+        parent.showBottomNav(true)
+
     }
 
 

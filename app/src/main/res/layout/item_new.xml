@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_105sdp"
+    android:layout_marginStart="@dimen/_12sdp"
+    android:layout_marginTop="@dimen/_8sdp"
+    android:layout_marginEnd="@dimen/_12sdp"
+    android:layout_marginBottom="@dimen/_8sdp"
+    android:elevation="@dimen/_24sdp"
+    app:cardCornerRadius="@dimen/_8sdp"
+    app:strokeColor="@color/grey_200"
+    app:strokeWidth="0.2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="@string/consultant_date"
+            android:textColor="@color/dark_blue"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:text="5/3/2022"
+            android:textColor="@color/dark_blue"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv1"
+            app:layout_constraintStart_toEndOf="@+id/tv1"
+            app:layout_constraintTop_toTopOf="@+id/tv1" />
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_18sdp"
+            android:gravity="center"
+            android:text="استشارة منزلية"
+            android:textColor="@color/light_grey"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintStart_toEndOf="@+id/date"
+            app:layout_constraintTop_toTopOf="@+id/date" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/consultant_number"
+            android:textColor="@color/dark_blue"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toTopOf="@+id/status"
+            app:layout_constraintStart_toStartOf="@+id/tv1"
+            app:layout_constraintTop_toBottomOf="@+id/tv1" />
+
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:text="123"
+            android:textColor="@color/dark_blue"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv2"
+            app:layout_constraintStart_toEndOf="@+id/tv2"
+            app:layout_constraintTop_toTopOf="@+id/tv2" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:text="@string/new_consultant"
+            android:textColor="@color/dark_green"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

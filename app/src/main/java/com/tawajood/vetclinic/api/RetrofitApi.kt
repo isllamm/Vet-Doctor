@@ -89,4 +89,42 @@ interface RetrofitApi {
         @Header("lang") lang: String,
         @Header("token") token: String,
     ): Response<MainResponse<ProfileResponse>>
+
+
+    @POST("profile/profile/update")
+    suspend fun updateProfile(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+        @Body updatedBody: UpdatedBody
+    ): Response<MainResponse<Any>>
+
+    @GET("profile/profile/delete-account")
+    suspend fun deleteAccount(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+    ): Response<MainResponse<Any>>
+
+    @GET("profile/notifications/show")
+    suspend fun getNotifications(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+    ): Response<MainResponse<NotificationResponse>>
+
+    @GET("profile/requests/previous-show")
+    suspend fun getPreviousConsultants(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+    ): Response<MainResponse<PreviousConsultantsResponse>>
+
+    @GET("profile/requests/current-show")
+    suspend fun getCurrentConsultants(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+    ): Response<MainResponse<CurrentConsultantsResponse>>
+
+    @GET("profile/requests/new-show")
+    suspend fun getNewConsultants(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+    ): Response<MainResponse<NewConsultantsResponse>>
 }

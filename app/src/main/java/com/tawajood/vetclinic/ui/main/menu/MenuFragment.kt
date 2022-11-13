@@ -77,10 +77,17 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         binding.clLogout.setOnClickListener {
             parent.logout()
         }
+        binding.clNotification.setOnClickListener {
+            parent.navController.navigate(R.id.notificationsFragment)
+        }
+        binding.clLanguage.setOnClickListener {
+            parent.navController.navigate(R.id.settingsFragment)
+        }
     }
 
     private fun setupUI() {
         parent.setTitle(getString(R.string.menu))
+        parent.showBottomNav(true)
     }
 
 

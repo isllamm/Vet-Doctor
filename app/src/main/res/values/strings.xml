@@ -58,5 +58,20 @@
     <string name="edit_profile">Edit Profile</string>
     <string name="delete_account"><u>Delete Account</u></string>
     <string name="save">Save</string>
+    <string name="the_amount_has_been_withdrawn_successfully">The amount has been withdrawn successfully</string>
+    <string name="withdrawal_failed">Withdrawal failed</string>
+    <string name="language">Language</string>
+    <string name="ar">Arabic</string>
+    <string name="en">English</string>
+    <string name="the_consultants">The Consultants</string>
+    <string name="finished">finished</string>
+    <string name="current">current</string>
+    <string name="newc">new</string>
+    <string name="consultant_date">Consultant Date:</string>
+    <string name="consultant_number">consultant number:</string>
+    <string name="finished_consultant">finished consultant</string>
+    <string name="current_consultant">current consultant</string>
+    <string name="new_consultant">new consultant</string>
+
 
 </resources>

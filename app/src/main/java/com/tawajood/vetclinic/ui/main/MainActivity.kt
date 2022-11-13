@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -36,6 +37,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onClick() {
+
         binding.toolbar.ivBack.setOnClickListener {
             onBackPressed()
         }
@@ -69,5 +71,9 @@ class MainActivity : AppCompatActivity() {
 
     fun setTitle(title: String) {
         binding.toolbar.title.text = title
+    }
+
+    fun showBottomNav(isVisible: Boolean) {
+        binding.bottomNavView.isVisible = isVisible
     }
 }

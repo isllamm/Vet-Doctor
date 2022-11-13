@@ -57,6 +57,8 @@ class SupportFragment : Fragment(R.layout.fragment_support) {
 
     private fun setupUI() {
         parent.setTitle(getString(R.string.technical_support))
+        parent.showBottomNav(false)
+
     }
 
 

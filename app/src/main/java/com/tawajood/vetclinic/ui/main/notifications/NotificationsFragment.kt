@@ -1,4 +1,4 @@
-package com.tawajood.vetclinic.ui.main.terms
+package com.tawajood.vetclinic.ui.main.notifications
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,36 +7,47 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
 import com.tawajood.vetclinic.R
-import com.tawajood.vetclinic.databinding.FragmentAboutUsBinding
-import com.tawajood.vetclinic.databinding.FragmentTermsBinding
+import com.tawajood.vetclinic.adapters.NotificationAdapter
+import com.tawajood.vetclinic.adapters.SpecializationAdapter
+import com.tawajood.vetclinic.databinding.FragmentNotificationsBinding
+import com.tawajood.vetclinic.databinding.FragmentPaymentsBinding
 import com.tawajood.vetclinic.ui.main.MainActivity
-import com.tawajood.vetclinic.ui.main.about_us.AboutUsViewModel
+import com.tawajood.vetclinic.ui.main.payments.PaymentsViewModel
 import com.tawajood.vetclinic.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
-class TermsFragment : Fragment(R.layout.fragment_terms) {
+class NotificationsFragment : Fragment(R.layout.fragment_notifications) {
 
-
-    private lateinit var binding: FragmentTermsBinding
+    private lateinit var binding: FragmentNotificationsBinding
     private lateinit var parent: MainActivity
-    private val viewModel: TermsViewModel by viewModels()
+    private val viewModel: NotificationsViewModel by viewModels()
+    private lateinit var notificationAdapter: NotificationAdapter
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentTermsBinding.bind(requireView())
+        binding = FragmentNotificationsBinding.bind(requireView())
         parent = requireActivity() as MainActivity
 
         setupUI()
         observeData()
+        setupNotification()
+
+    }
+
+    private fun setupNotification() {
+        notificationAdapter = NotificationAdapter()
+
+        binding.rvNotifications.adapter = notificationAdapter
     }
 
     private fun observeData() {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            viewModel.terms.collectLatest {
+            viewModel.notifications.collectLatest {
                 parent.hideLoading()
                 when (it) {
                     is Resource.Error -> {
@@ -47,7 +58,7 @@ class TermsFragment : Fragment(R.layout.fragment_terms) {
                     }
                     is Resource.Loading -> parent.showLoading()
                     is Resource.Success -> {
-                        binding.tvTerms.text = it.data!!.terms
+                        notificationAdapter.notifications = it.data!!.notifications.data
                     }
                 }
             }
@@ -55,9 +66,8 @@ class TermsFragment : Fragment(R.layout.fragment_terms) {
     }
 
     private fun setupUI() {
-        parent.setTitle(getString(R.string.terms_and_conditions))
-        parent.showBottomNav(false)
-
+        parent.setTitle(getString(R.string.notifications))
+        parent.showBottomNav(true)
     }
 
 

@@ -56,6 +56,20 @@
     <string name="clinic_timings">مواعيد العيادة</string>
     <string name="edit_profile">تعديل الحساب</string>
     <string name="delete_account"><u>حذف الحساب</u></string>
-    <string name="save">Save</string>
+    <string name="save">حفظ</string>
+    <string name="the_amount_has_been_withdrawn_successfully">تم سحب المبلغ بنجاح</string>
+    <string name="withdrawal_failed">فشل عملية سحب المبلغ</string>
+    <string name="language">اللغة</string>
+    <string name="ar">العربية</string>
+    <string name="en">الانجليزية</string>
+    <string name="the_consultants">الاستشارات</string>
+    <string name="finished">المنتهية</string>
+    <string name="current">الحالية</string>
+    <string name="newc">الجديدة</string>
+    <string name="consultant_date">تاريخ الطلب :</string>
+    <string name="consultant_number">رقم الاستشارة :</string>
+    <string name="finished_consultant">طلب منتهى</string>
+    <string name="current_consultant">طلب حالى</string>
+    <string name="new_consultant">طلب جديد</string>
 
 </resources>
