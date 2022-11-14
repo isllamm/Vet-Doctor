@@ -80,4 +80,9 @@
         android:name="com.tawajood.vetclinic.ui.main.consultants.CurrentConsultInfoFragment"
         android:label="fragment_current_consult_info"
         tools:layout="@layout/fragment_current_consult_info" />
+    <fragment
+        android:id="@+id/previousAnimalInfoFragment"
+        android:name="com.tawajood.vetclinic.ui.main.pet.PreviousAnimalInfoFragment"
+        android:label="fragment_previous_animal_info"
+        tools:layout="@layout/fragment_previous_animal_info" />
 </navigation>

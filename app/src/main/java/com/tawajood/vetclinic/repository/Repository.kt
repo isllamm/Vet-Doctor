@@ -68,6 +68,9 @@ constructor(private val api: RetrofitApi) {
     suspend fun getPreviousConsultantsInfo(id: String) =
         api.getPreviousConsultantsInfo(PrefsHelper.getLanguage(), PrefsHelper.getToken(), id)
 
+    suspend fun getPreviousAnimalInfo(id: String, request_id: String) =
+        api.getPreviousAnimalInfo(PrefsHelper.getLanguage(), PrefsHelper.getToken(), id, request_id)
+
     suspend fun getCurrentConsultants() =
         api.getCurrentConsultants(PrefsHelper.getLanguage(), PrefsHelper.getToken())
 

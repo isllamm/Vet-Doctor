@@ -7,4 +7,10 @@ data class Pet(
     val image: String,
     val type_id: Int,
     val type: String,
+    val gender:String,
+    val age:Int,
+    val weight:Int,
+    val created_at:String,
+    val previous_requests:MutableList<PreviousRequests>,
+    val vaccinations:MutableList<Vaccination>
 )

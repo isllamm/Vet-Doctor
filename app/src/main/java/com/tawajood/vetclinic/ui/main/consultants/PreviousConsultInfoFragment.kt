@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -45,7 +46,18 @@ class PreviousConsultInfoFragment : Fragment(R.layout.fragment_previous_consult_
         onClick()
         setUpImages()
     }
+    private fun onClick() {
+        binding.ivLocation.setOnClickListener {
 
+        }
+
+        binding.tvPetDetails.setOnClickListener {
+            parent.navController.navigate(
+                R.id.previousAnimalInfoFragment,
+                bundleOf(Constants.PET_ID to pet.id.toString(), Constants.CONSULTANT_ID to consultantInfo.id.toString())
+            )
+        }
+    }
     private fun setUpImages() {
         imagesAdapter = ClinicImagesAdapter()
 
@@ -100,15 +112,7 @@ class PreviousConsultInfoFragment : Fragment(R.layout.fragment_previous_consult_
         }
     }
 
-    private fun onClick() {
-        binding.ivLocation.setOnClickListener {
 
-        }
-
-        binding.tvPetDetails.setOnClickListener {
-
-        }
-    }
 
     private fun setupUI() {
         viewModel.getPreviousConsultantsInfo(id)
