@@ -72,6 +72,25 @@
     <string name="finished_consultant">finished consultant</string>
     <string name="current_consultant">current consultant</string>
     <string name="new_consultant">new consultant</string>
+    <string name="consultant_details">consultant details</string>
+    <string name="previous_consultant">Previous Consultant</string>
+    <string name="consultant_info">Consultant Info</string>
+    <string name="consultant_date1">Consultant Date:</string>
+    <string name="consultant_time1">Consultant time:</string>
+    <string name="consultant_type1">Consultant type:</string>
+    <string name="consultant_duration1">Consultant duration:</string>
+    <string name="pet_info">Pet Info</string>
+    <string name="pet_details1"><u>Pet Details</u></string>
+    <string name="address1"><u>Address</u></string>
+    <string name="notes">Notes</string>
+    <string name="attached_images">Attached Images</string>
+    <string name="reject">reject</string>
+    <string name="accept">Accept</string>
+    <string name="add_details1">Add Details</string>
+    <string name="new_consultant1">new consultant</string>
+    <string name="current_consultant_paid">current consultant - paid</string>
+    <string name="current_consultant_not_paid">current consultant - not paid</string>
+
 
 
 </resources>

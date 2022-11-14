@@ -3,10 +3,7 @@ package com.tawajood.vetclinic.ui.main.consultants
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.tawajood.vetclinic.pojo.CurrentConsultantsResponse
-import com.tawajood.vetclinic.pojo.NewConsultantsResponse
-import com.tawajood.vetclinic.pojo.NotificationResponse
-import com.tawajood.vetclinic.pojo.PreviousConsultantsResponse
+import com.tawajood.vetclinic.pojo.*
 import com.tawajood.vetclinic.repository.Repository
 import com.tawajood.vetclinic.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,18 +19,30 @@ class MyConsultantsViewModel
 constructor(
     private val repository: Repository
 ) : ViewModel() {
+
     private val _previousConsultants =
         MutableStateFlow<Resource<PreviousConsultantsResponse>>(Resource.Idle())
     val previousConsultants = _previousConsultants.asSharedFlow()
+
+    private val _previousConsultantInfo =
+        MutableStateFlow<Resource<PreviousConsultantInfoResponse>>(Resource.Idle())
+    val previousConsultantInfo = _previousConsultantInfo.asSharedFlow()
 
     private val _currentConsultants =
         MutableStateFlow<Resource<CurrentConsultantsResponse>>(Resource.Idle())
     val currentConsultants = _currentConsultants.asSharedFlow()
 
+    private val _currentConsultantInfo =
+        MutableStateFlow<Resource<CurrentConsultantInfoResponse>>(Resource.Idle())
+    val currentConsultantInfo = _currentConsultantInfo.asSharedFlow()
 
     private val _newConsultants =
         MutableStateFlow<Resource<NewConsultantsResponse>>(Resource.Idle())
     val newConsultants = _newConsultants.asSharedFlow()
+
+    private val _newConsultantInfo =
+        MutableStateFlow<Resource<NewConsultantInfoResponse>>(Resource.Idle())
+    val newConsultantInfo = _newConsultantInfo.asSharedFlow()
 
     init {
         getPreviousConsultants()
@@ -81,6 +90,48 @@ constructor(
         } catch (e: Exception) {
             Log.d("islam", "getNewConsultants: ${e.message}")
             _newConsultants.emit(Resource.Error(message = e.message!!))
+        }
+    }
+
+    fun getPreviousConsultantsInfo(id: String) = viewModelScope.launch {
+        try {
+            _previousConsultantInfo.emit(Resource.Loading())
+            val response = handleResponse(repository.getPreviousConsultantsInfo(id))
+            if (response.status) {
+                _previousConsultantInfo.emit(Resource.Success(response.data!!))
+            } else {
+                _previousConsultantInfo.emit(Resource.Error(message = response.msg))
+            }
+        } catch (e: Exception) {
+            _previousConsultantInfo.emit(Resource.Error(message = e.message!!))
+        }
+    }
+
+    fun getNewConsultantsInfo(id: String) = viewModelScope.launch {
+        try {
+            _newConsultantInfo.emit(Resource.Loading())
+            val response = handleResponse(repository.getNewConsultantsInfo(id))
+            if (response.status) {
+                _newConsultantInfo.emit(Resource.Success(response.data!!))
+            } else {
+                _newConsultantInfo.emit(Resource.Error(message = response.msg))
+            }
+        } catch (e: Exception) {
+            _newConsultantInfo.emit(Resource.Error(message = e.message!!))
+        }
+    }
+
+    fun getCurrentConsultantsInfo(id: String) = viewModelScope.launch {
+        try {
+            _currentConsultantInfo.emit(Resource.Loading())
+            val response = handleResponse(repository.getCurrentConsultantsInfo(id))
+            if (response.status) {
+                _currentConsultantInfo.emit(Resource.Success(response.data!!))
+            } else {
+                _currentConsultantInfo.emit(Resource.Error(message = response.msg))
+            }
+        } catch (e: Exception) {
+            _currentConsultantInfo.emit(Resource.Error(message = e.message!!))
         }
     }
 

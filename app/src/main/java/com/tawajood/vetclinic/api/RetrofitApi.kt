@@ -116,15 +116,36 @@ interface RetrofitApi {
         @Header("token") token: String,
     ): Response<MainResponse<PreviousConsultantsResponse>>
 
+    @GET("profile/requests/previous-details/{id}")
+    suspend fun getPreviousConsultantsInfo(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+        @Path("id") id: String,
+    ): Response<MainResponse<PreviousConsultantInfoResponse>>
+
     @GET("profile/requests/current-show")
     suspend fun getCurrentConsultants(
         @Header("lang") lang: String,
         @Header("token") token: String,
     ): Response<MainResponse<CurrentConsultantsResponse>>
 
+    @GET("profile/requests/current-details/{id}")
+    suspend fun getCurrentConsultantsInfo(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+        @Path("id") id: String,
+    ): Response<MainResponse<CurrentConsultantInfoResponse>>
+
     @GET("profile/requests/new-show")
     suspend fun getNewConsultants(
         @Header("lang") lang: String,
         @Header("token") token: String,
     ): Response<MainResponse<NewConsultantsResponse>>
+
+    @GET("profile/requests/new-details/{id}")
+    suspend fun getNewConsultantsInfo(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+        @Path("id") id: String,
+    ): Response<MainResponse<NewConsultantInfoResponse>>
 }

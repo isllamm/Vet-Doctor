@@ -27,7 +27,7 @@ object Constants {
     const val CLINIC_NAME = "name"
     const val REVIEW_CLINIC = "review"
     const val PET_ID = "id"
-    const val REQUEST_ID = "id"
+    const val CONSULTANT_ID = "id"
     const val CAT_ID = "id"
     const val VENDOR_ID = "id"
     const val SUB_CAT_ID = "id"

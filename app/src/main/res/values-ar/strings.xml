@@ -71,5 +71,23 @@
     <string name="finished_consultant">طلب منتهى</string>
     <string name="current_consultant">طلب حالى</string>
     <string name="new_consultant">طلب جديد</string>
+    <string name="consultant_details">تفاصيل الطلب</string>
+    <string name="previous_consultant">طلب سابق</string>
+    <string name="consultant_info">بيانات الاستشارة</string>
+    <string name="consultant_date1">تاريخ الاستشارة :</string>
+    <string name="consultant_time1">موعد الاستشارة :</string>
+    <string name="consultant_type1">نوع الاستشارة :</string>
+    <string name="consultant_duration1">مدة الاستشارة :</string>
+    <string name="pet_info">بيانات الحيوان</string>
+    <string name="pet_details1"><u>تفاصيل الحيوان</u></string>
+    <string name="address1"><u>العنوان</u></string>
+    <string name="notes">ملاحظات</string>
+    <string name="attached_images">صور مرفقة</string>
+    <string name="reject">رفض</string>
+    <string name="accept">قبول</string>
+    <string name="add_details1"><u>إضافة تفاصيل</u></string>
+    <string name="new_consultant1">new consultant</string>
+    <string name="current_consultant_paid">طلب حالى - تم سداد الرسوم</string>
+    <string name="current_consultant_not_paid">طلب حالى -لم يتم سداد الرسوم</string>
 
 </resources>

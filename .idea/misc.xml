@@ -7,6 +7,8 @@
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/bottom_nav_bg.xml" value="0.215" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/full_border_radius_12.xml" value="0.215" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/full_border_radius_12_blue.xml" value="0.215" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/full_border_radius_12_blue_stroke.xml" value="0.217" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/full_border_radius_12_green.xml" value="0.217" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/full_border_radius_16.xml" value="0.215" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/full_border_radius_16_blue.xml" value="0.215" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/drawable/full_border_radius_24.xml" value="0.215" />
@@ -25,6 +27,7 @@
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/activity_splash.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/dailog_loading.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_about_us.xml" value="0.34782608695652173" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_current_consult_info.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_edit_profile.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_failed_process.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_forget_password.xml" value="0.34782608695652173" />
@@ -32,9 +35,11 @@
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_login.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_menu.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_my_consultants.xml" value="0.34782608695652173" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_new_consult_info.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_notifications.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_o_t_p.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_payments.xml" value="0.34782608695652173" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_previous_consult_info.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_profile.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_register.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_settings.xml" value="0.34782608695652173" />

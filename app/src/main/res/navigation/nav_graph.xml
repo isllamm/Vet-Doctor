@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/menuFragment">
+    app:startDestination="@id/myConsultantsFragment">
 
     <fragment
         android:id="@+id/menuFragment"
@@ -65,4 +65,19 @@
         android:name="com.tawajood.vetclinic.ui.main.consultants.MyConsultantsFragment"
         android:label="fragment_my_consultants"
         tools:layout="@layout/fragment_my_consultants" />
+    <fragment
+        android:id="@+id/previousConsultInfoFragment"
+        android:name="com.tawajood.vetclinic.ui.main.consultants.PreviousConsultInfoFragment"
+        android:label="fragment_previous_consult_info"
+        tools:layout="@layout/fragment_previous_consult_info" />
+    <fragment
+        android:id="@+id/newConsultInfoFragment"
+        android:name="com.tawajood.vetclinic.ui.main.consultants.NewConsultInfoFragment"
+        android:label="fragment_new_consult_info"
+        tools:layout="@layout/fragment_new_consult_info" />
+    <fragment
+        android:id="@+id/currentConsultInfoFragment"
+        android:name="com.tawajood.vetclinic.ui.main.consultants.CurrentConsultInfoFragment"
+        android:label="fragment_current_consult_info"
+        tools:layout="@layout/fragment_current_consult_info" />
 </navigation>

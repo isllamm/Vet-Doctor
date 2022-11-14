@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -15,7 +16,9 @@ import com.tawajood.vetclinic.adapters.NewConsultAdapter
 import com.tawajood.vetclinic.adapters.NotificationAdapter
 import com.tawajood.vetclinic.adapters.PreviousConsultAdapter
 import com.tawajood.vetclinic.databinding.FragmentMyConsultantsBinding
+import com.tawajood.vetclinic.pojo.Consultant
 import com.tawajood.vetclinic.ui.main.MainActivity
+import com.tawajood.vetclinic.utils.Constants
 import com.tawajood.vetclinic.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -30,6 +33,9 @@ class MyConsultantsFragment : Fragment(R.layout.fragment_my_consultants) {
     private lateinit var previousConsultAdapter: PreviousConsultAdapter
     private lateinit var currentConsultAdapter: CurrentConsultAdapter
     private lateinit var newConsultAdapter: NewConsultAdapter
+    var prevConsultants = mutableListOf<Consultant>()
+    var newConsultants = mutableListOf<Consultant>()
+    var currentConsultants = mutableListOf<Consultant>()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -49,7 +55,10 @@ class MyConsultantsFragment : Fragment(R.layout.fragment_my_consultants) {
     private fun setupNewConsult() {
         newConsultAdapter = NewConsultAdapter(object : NewConsultAdapter.OnItemClick {
             override fun onItemClickListener(position: Int) {
-
+                parent.navController.navigate(
+                    R.id.newConsultInfoFragment,
+                    bundleOf(Constants.CONSULTANT_ID to newConsultants[position].id.toString())
+                )
             }
         })
         binding.rvNew.adapter = newConsultAdapter
@@ -58,7 +67,10 @@ class MyConsultantsFragment : Fragment(R.layout.fragment_my_consultants) {
     private fun setupCurrentConsult() {
         currentConsultAdapter = CurrentConsultAdapter(object : CurrentConsultAdapter.OnItemClick {
             override fun onItemClickListener(position: Int) {
-
+                parent.navController.navigate(
+                    R.id.currentConsultInfoFragment,
+                    bundleOf(Constants.CONSULTANT_ID to currentConsultants[position].id.toString())
+                )
             }
         })
         binding.rvCurrent.adapter = currentConsultAdapter
@@ -68,7 +80,10 @@ class MyConsultantsFragment : Fragment(R.layout.fragment_my_consultants) {
         previousConsultAdapter =
             PreviousConsultAdapter(object : PreviousConsultAdapter.OnItemClick {
                 override fun onItemClickListener(position: Int) {
-
+                    parent.navController.navigate(
+                        R.id.previousConsultInfoFragment,
+                        bundleOf(Constants.CONSULTANT_ID to prevConsultants[position].id.toString())
+                    )
                 }
 
             })
@@ -148,6 +163,7 @@ class MyConsultantsFragment : Fragment(R.layout.fragment_my_consultants) {
                     is Resource.Loading -> parent.showLoading()
                     is Resource.Success -> {
                         previousConsultAdapter.consultants = it.data!!.previousConsultants.data
+                        prevConsultants = it.data.previousConsultants.data
                     }
                 }
             }
@@ -166,6 +182,8 @@ class MyConsultantsFragment : Fragment(R.layout.fragment_my_consultants) {
                     is Resource.Loading -> parent.showLoading()
                     is Resource.Success -> {
                         currentConsultAdapter.consultants = it.data!!.currentConsultants.data
+
+                        currentConsultants = it.data.currentConsultants.data
                     }
                 }
             }
@@ -184,6 +202,7 @@ class MyConsultantsFragment : Fragment(R.layout.fragment_my_consultants) {
                     is Resource.Loading -> parent.showLoading()
                     is Resource.Success -> {
                         newConsultAdapter.consultants = it.data!!.newConsultants.data
+                        newConsultants = it.data.newConsultants.data
                     }
                 }
             }
