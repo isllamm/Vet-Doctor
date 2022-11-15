@@ -22,6 +22,7 @@ class FailedProcessFragment : Fragment(R.layout.fragment_failed_process) {
         binding = FragmentFailedProcessBinding.bind(requireView())
         parent = requireActivity() as MainActivity
 
+
         setupUI()
     }
 

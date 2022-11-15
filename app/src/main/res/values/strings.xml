@@ -90,6 +90,19 @@
     <string name="new_consultant1">new consultant</string>
     <string name="current_consultant_paid">current consultant - paid</string>
     <string name="current_consultant_not_paid">current consultant - not paid</string>
+    <string name="animal_type">Animal Type</string>
+    <string name="animal_gender">Animal Gender</string>
+    <string name="animal_age">Animal Age</string>
+    <string name="animal_wieght">Animal Wieght</string>
+    <string name="previous_reports">Previous Reports</string>
+    <string name="medicines">Medicines</string>
+    <string name="vaccinations">Vaccinations</string>
+    <string name="report1">Report</string>
+    <string name="medicines1">Medicines</string>
+    <string name="vaccination1">Vaccination</string>
+    <string name="okay">Okay</string>
+    <string name="reviews">Reviews</string>
+    <string name="comments">Comments</string>
 
 
 </resources>

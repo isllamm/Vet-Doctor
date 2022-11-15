@@ -69,6 +69,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         binding.btnEdit.setOnClickListener {
             parent.navController.navigate(R.id.editProfileFragment)
         }
+
+        binding.star.setOnClickListener {
+            parent.navController.navigate(R.id.reviewsFragment)
+        }
     }
 
     private fun observeData() {

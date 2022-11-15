@@ -23,14 +23,18 @@ constructor(
         MutableStateFlow<Resource<AnimalInfoResponse>>(Resource.Idle())
     val previousAnimalInfo = _previousAnimalInfo.asSharedFlow()
 
+    private val _newAnimalInfo =
+        MutableStateFlow<Resource<AnimalInfoResponse>>(Resource.Idle())
+    val newAnimalInfo = _newAnimalInfo.asSharedFlow()
+
     init {
 
     }
 
-    fun getPreviousAnimalInfo(id: String, request_id: String) = viewModelScope.launch {
+    fun getPreviousAnimalInfo(id: String) = viewModelScope.launch {
         try {
             _previousAnimalInfo.emit(Resource.Loading())
-            val response = handleResponse(repository.getPreviousAnimalInfo(id, request_id))
+            val response = handleResponse(repository.getPreviousAnimalInfo(id))
             if (response.status) {
                 _previousAnimalInfo.emit(Resource.Success(response.data!!))
             } else {
@@ -38,6 +42,20 @@ constructor(
             }
         } catch (e: Exception) {
             _previousAnimalInfo.emit(Resource.Error(message = e.message!!))
+        }
+    }
+
+    fun getNewAnimalInfo(id: String) = viewModelScope.launch {
+        try {
+            _newAnimalInfo.emit(Resource.Loading())
+            val response = handleResponse(repository.getNewAnimalInfo(id))
+            if (response.status) {
+                _newAnimalInfo.emit(Resource.Success(response.data!!))
+            } else {
+                _newAnimalInfo.emit(Resource.Error(message = response.msg))
+            }
+        } catch (e: Exception) {
+            _newAnimalInfo.emit(Resource.Error(message = e.message!!))
         }
     }
 }

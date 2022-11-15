@@ -149,11 +149,24 @@ interface RetrofitApi {
         @Path("id") id: String,
     ): Response<MainResponse<NewConsultantInfoResponse>>
 
-    @GET("profile/requests/previous-details-animal/{id}/{request_id}")
+    @GET("profile/requests/previous-details-animal/{id}/1")
     suspend fun getPreviousAnimalInfo(
         @Header("lang") lang: String,
         @Header("token") token: String,
         @Path("id") id: String,
-        @Path("request_id") request_id: String,
     ): Response<MainResponse<AnimalInfoResponse>>
+
+    @GET("profile/requests/new-details-animal/{id}/1")
+    suspend fun getNewAnimalInfo(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+        @Path("id") id: String,
+    ): Response<MainResponse<AnimalInfoResponse>>
+
+    @GET("reviews/show")
+    suspend fun getReviews(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+    ): Response<MainResponse<ReviewsResponse>>
+
 }

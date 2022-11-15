@@ -84,5 +84,10 @@
         android:id="@+id/previousAnimalInfoFragment"
         android:name="com.tawajood.vetclinic.ui.main.pet.PreviousAnimalInfoFragment"
         android:label="fragment_previous_animal_info"
-        tools:layout="@layout/fragment_previous_animal_info" />
+        tools:layout="@layout/fragment_animal_info" />
+    <fragment
+        android:id="@+id/reviewsFragment"
+        android:name="com.tawajood.vetclinic.ui.main.reviews.ReviewsFragment"
+        android:label="fragment_reviews"
+        tools:layout="@layout/fragment_reviews" />
 </navigation>

@@ -68,8 +68,8 @@ constructor(private val api: RetrofitApi) {
     suspend fun getPreviousConsultantsInfo(id: String) =
         api.getPreviousConsultantsInfo(PrefsHelper.getLanguage(), PrefsHelper.getToken(), id)
 
-    suspend fun getPreviousAnimalInfo(id: String, request_id: String) =
-        api.getPreviousAnimalInfo(PrefsHelper.getLanguage(), PrefsHelper.getToken(), id, request_id)
+    suspend fun getPreviousAnimalInfo(id: String, ) =
+        api.getPreviousAnimalInfo(PrefsHelper.getLanguage(), PrefsHelper.getToken(), id, )
 
     suspend fun getCurrentConsultants() =
         api.getCurrentConsultants(PrefsHelper.getLanguage(), PrefsHelper.getToken())
@@ -82,4 +82,11 @@ constructor(private val api: RetrofitApi) {
 
     suspend fun getNewConsultantsInfo(id: String) =
         api.getNewConsultantsInfo(PrefsHelper.getLanguage(), PrefsHelper.getToken(), id)
+
+    suspend fun getNewAnimalInfo(id: String) =
+        api.getNewAnimalInfo(PrefsHelper.getLanguage(), PrefsHelper.getToken(), id)
+
+
+    suspend fun getReviews() =
+        api.getReviews(PrefsHelper.getLanguage(), PrefsHelper.getToken())
 }

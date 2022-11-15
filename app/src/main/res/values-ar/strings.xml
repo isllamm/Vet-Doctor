@@ -89,5 +89,17 @@
     <string name="new_consultant1">new consultant</string>
     <string name="current_consultant_paid">طلب حالى - تم سداد الرسوم</string>
     <string name="current_consultant_not_paid">طلب حالى -لم يتم سداد الرسوم</string>
-
+    <string name="animal_type">نوع الحيوان</string>
+    <string name="animal_gender">جنس الحيوان</string>
+    <string name="animal_age">عمر الحيوان</string>
+    <string name="animal_wieght">وزن الحيوان</string>
+    <string name="previous_reports">التقارير السابقة</string>
+    <string name="medicines">الوصفات</string>
+    <string name="vaccinations">دفتر التطعيمات</string>
+    <string name="report1">محتوى التقرير:</string>
+    <string name="medicines1">الوصفات:</string>
+    <string name="vaccination1">اسم التطعيم:</string>
+    <string name="okay">حسنا</string>
+    <string name="reviews">تقييمات العملاء</string>
+    <string name="comments">التعليقات</string>
 </resources>

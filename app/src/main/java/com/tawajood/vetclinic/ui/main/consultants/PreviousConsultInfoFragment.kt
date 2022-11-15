@@ -46,6 +46,7 @@ class PreviousConsultInfoFragment : Fragment(R.layout.fragment_previous_consult_
         onClick()
         setUpImages()
     }
+
     private fun onClick() {
         binding.ivLocation.setOnClickListener {
 
@@ -54,10 +55,14 @@ class PreviousConsultInfoFragment : Fragment(R.layout.fragment_previous_consult_
         binding.tvPetDetails.setOnClickListener {
             parent.navController.navigate(
                 R.id.previousAnimalInfoFragment,
-                bundleOf(Constants.PET_ID to pet.id.toString(), Constants.CONSULTANT_ID to consultantInfo.id.toString())
+                bundleOf(
+                    Constants.PET_ID to pet.id.toString(),
+                    Constants.TYPE to "1"
+                )
             )
         }
     }
+
     private fun setUpImages() {
         imagesAdapter = ClinicImagesAdapter()
 
@@ -111,7 +116,6 @@ class PreviousConsultInfoFragment : Fragment(R.layout.fragment_previous_consult_
             }
         }
     }
-
 
 
     private fun setupUI() {

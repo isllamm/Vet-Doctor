@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -39,6 +40,7 @@ class NewConsultInfoFragment : Fragment(R.layout.fragment_new_consult_info) {
         binding = FragmentNewConsultInfoBinding.bind(requireView())
         parent = requireActivity() as MainActivity
         id = requireArguments().getString(Constants.CONSULTANT_ID).toString()
+
         setupUI()
         observeData()
         onClick()
@@ -53,7 +55,13 @@ class NewConsultInfoFragment : Fragment(R.layout.fragment_new_consult_info) {
 
     private fun onClick() {
         binding.tvPetDetails.setOnClickListener {
-
+            parent.navController.navigate(
+                R.id.previousAnimalInfoFragment,
+                bundleOf(
+                    Constants.PET_ID to pet.id.toString(),
+                    Constants.TYPE to "2"
+                )
+            )
         }
 
         binding.tvReject.setOnClickListener {
