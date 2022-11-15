@@ -19,6 +19,7 @@ import com.tawajood.vetclinic.pojo.Bank
 import com.tawajood.vetclinic.ui.main.MainActivity
 import com.tawajood.vetclinic.ui.main.payments.PaymentsViewModel
 import com.tawajood.vetclinic.utils.Resource
+import com.tawajood.vetclinic.utils.showAlertDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
@@ -72,6 +73,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
         binding.star.setOnClickListener {
             parent.navController.navigate(R.id.reviewsFragment)
+        }
+
+        binding.tvDeleteAccount.setOnClickListener {
+            showAlertDialog(childFragmentManager)
         }
     }
 

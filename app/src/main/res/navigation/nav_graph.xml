@@ -90,4 +90,9 @@
         android:name="com.tawajood.vetclinic.ui.main.reviews.ReviewsFragment"
         android:label="fragment_reviews"
         tools:layout="@layout/fragment_reviews" />
+    <dialog
+        android:id="@+id/deleteAccountDialogFragment"
+        android:name="com.tawajood.vetclinic.ui.main.profile.DeleteAccountDialogFragment"
+        android:label="fragment_delete_account_dialog"
+        tools:layout="@layout/fragment_delete_account_dialog" />
 </navigation>
