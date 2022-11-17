@@ -3,7 +3,7 @@ package com.tawajood.vetclinic.pojo
 import com.google.gson.annotations.SerializedName
 import java.io.File
 
-data class UpdatedBody (
+data class UpdatedBody(
     val name: String,
     val phone: String,
     @SerializedName("country_code")
@@ -16,9 +16,7 @@ data class UpdatedBody (
     val status_online: Int,
     val lat: String,
     val lng: String,
-    val image: File,
-    @SerializedName("clinic_specializations[]")
-    val clinic_specializations: Int,
-    @SerializedName("images[]")
-    val images: File,
-    )
+    val image: File?,
+    //@SerializedName("clinic_specializations[]")
+    val clinic_specializations: ArrayList<String>,
+)

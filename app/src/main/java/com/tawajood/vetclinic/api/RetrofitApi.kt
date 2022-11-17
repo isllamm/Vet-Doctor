@@ -90,6 +90,23 @@ interface RetrofitApi {
         @Header("token") token: String,
     ): Response<MainResponse<ProfileResponse>>
 
+    @GET("profile/profile/edit")
+    suspend fun getEditProfile(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+    ): Response<MainResponse<EditProfileResponse>>
+
+    @Multipart
+    @JvmSuppressWildcards
+    @POST("profile/profile/update")
+    suspend fun updateProfile(
+        @Header("token") token: String,
+        @Header("lang") lang: String,
+        @PartMap updateProfileMap: Map<String, RequestBody>,
+        @Part image: MultipartBody.Part,
+        @Query("clinic_specializations[]") ids: ArrayList<String>,
+    ): Response<MainResponse<Any>>
+
 
     @POST("profile/profile/update")
     suspend fun updateProfile(

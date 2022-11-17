@@ -108,6 +108,17 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                         timesAdapter.times = profile.clinic_days
                         spAdapter.specialization = profile.specializations
                         imagesAdapter.images = profile.clinic_images
+
+
+                        PrefsHelper.setUserImage(profile.image)
+                        PrefsHelper.setUserId(profile.id)
+                        PrefsHelper.setUsername(profile.name)
+                        PrefsHelper.setEmail(profile.email)
+                        PrefsHelper.setCurrentLat(profile.lat.toFloat())
+                        PrefsHelper.setCurrentLng(profile.lng.toFloat())
+                        PrefsHelper.setPhone(profile.phone)
+                        PrefsHelper.setCountryCode(profile.country_code)
+
                     }
                 }
             }

@@ -27,6 +27,7 @@
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/activity_main.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/activity_splash.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/dailog_loading.xml" value="0.34782608695652173" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/dialog_result.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_about_us.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_current_consult_info.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/fragment_delete_account_dialog.xml" value="0.34782608695652173" />
@@ -61,6 +62,7 @@
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/item_report.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/item_review.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/item_specialization.xml" value="0.34782608695652173" />
+        <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/item_specialization_edit.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/item_vaccination.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/toolbar.xml" value="0.34782608695652173" />
         <entry key="..\:/TAWAJOOD/VetClinic/app/src/main/res/layout/toolbar_auth.xml" value="0.33" />

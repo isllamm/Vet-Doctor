@@ -2,7 +2,16 @@ package com.tawajood.vetclinic.repository
 
 import PrefsHelper
 import com.tawajood.vetclinic.api.RetrofitApi
+import com.tawajood.vetclinic.pojo.MainResponse
 import com.tawajood.vetclinic.pojo.RegisterBody
+import com.tawajood.vetclinic.pojo.UpdatedBody
+import com.tawajood.vetclinic.utils.toMap
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
+import retrofit2.Response
 import javax.inject.Inject
 
 class Repository
@@ -56,6 +65,35 @@ constructor(private val api: RetrofitApi) {
     )
 
     suspend fun getProfile() = api.getProfile(PrefsHelper.getLanguage(), PrefsHelper.getToken())
+    suspend fun getEditProfile() =
+        api.getEditProfile(PrefsHelper.getLanguage(), PrefsHelper.getToken())
+
+    suspend fun updateProfile(
+        updateBody: UpdatedBody,
+    ): Response<MainResponse<Any>> {
+        if (updateBody.image != null) {
+            val imagePart = MultipartBody.Part.createFormData(
+                "image",
+                updateBody.image.name,
+                updateBody.image.asRequestBody("multipart/form-data".toMediaTypeOrNull())
+            )
+
+            return api.updateProfile(
+                PrefsHelper.getToken(),
+                PrefsHelper.getLanguage(),
+                updateBody.toMap(),
+                imagePart,
+                updateBody.clinic_specializations
+            )
+        } else {
+            return api.updateProfile(
+                PrefsHelper.getToken(),
+                PrefsHelper.getLanguage(),
+                updateBody
+            )
+        }
+    }
+
     suspend fun deleteAccount() =
         api.deleteAccount(PrefsHelper.getLanguage(), PrefsHelper.getToken())
 
@@ -68,8 +106,8 @@ constructor(private val api: RetrofitApi) {
     suspend fun getPreviousConsultantsInfo(id: String) =
         api.getPreviousConsultantsInfo(PrefsHelper.getLanguage(), PrefsHelper.getToken(), id)
 
-    suspend fun getPreviousAnimalInfo(id: String, ) =
-        api.getPreviousAnimalInfo(PrefsHelper.getLanguage(), PrefsHelper.getToken(), id, )
+    suspend fun getPreviousAnimalInfo(id: String) =
+        api.getPreviousAnimalInfo(PrefsHelper.getLanguage(), PrefsHelper.getToken(), id)
 
     suspend fun getCurrentConsultants() =
         api.getCurrentConsultants(PrefsHelper.getLanguage(), PrefsHelper.getToken())

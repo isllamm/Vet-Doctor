@@ -107,6 +107,7 @@
     <string name="are_you_sure_you_want_to_delete_the_account">Are you sure you want to delete the account?</string>
     <string name="yes_delete">Yes Delete</string>
     <string name="no">No</string>
+    <string name="profile_updated_successfully">profile updated successfully</string>
 
 
 </resources>

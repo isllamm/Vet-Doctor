@@ -106,4 +106,6 @@
     <string name="are_you_sure_you_want_to_delete_the_account">هل أنت مـتأكد من أنك تريد أن تقوم بحذف الحساب؟</string>
     <string name="yes_delete">نعم حذف</string>
     <string name="no">لا</string>
+    <string name="profile_updated_successfully">تم تحديث الملف الشخصي بنجاح</string>
+
 </resources>
