@@ -111,4 +111,11 @@
     <string name="time_deleted_successfully">تم ازالة الموعد بنجاح</string>
     <string name="from">من</string>
     <string name="to">إلى</string>
+    <string name="chat">غرفة المحادثة</string>
+    <string name="message">الرسالة..</string>
+    <string name="lorem">لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبورأنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريدأكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات . ديواسأيوتي أريري دولار إن ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايتنيولا باراياتيور. أيكسسيبتيور ساينت أوككايكات كيوبايداتات نون بروايدينت ,سيونت ان كيولبا</string>
+    <string name="add_report">اضافة تقارير</string>
+    <string name="add_medicines">اضافة وصفات</string>
+    <string name="added_reports_and_medicines">التقارير و الوصفات المضافة</string>
+
 </resources>

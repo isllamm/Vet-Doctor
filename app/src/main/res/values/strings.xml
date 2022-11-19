@@ -112,5 +112,11 @@
     <string name="time_deleted_successfully">time deleted successfully</string>
     <string name="from">From</string>
     <string name="to">to</string>
+    <string name="chat">Chat</string>
+    <string name="message">message</string>
+    <string name="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborumnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentiumoptio, eaque rerum! Provident similique accusantium nemo autem. Veritatisobcaecati tenetur iure eius earum ut molestias architecto voluptate aliquamnihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eossapiente officiis modi at sunt excepturi expedita sint? Sed quibusdamrecusandae alias error harum maxime adipisci amet laborum.</string>
+    <string name="add_report">Add Report</string>
+    <string name="add_medicines">Add Medicines</string>
+    <string name="added_reports_and_medicines">Added Reports And Medicines</string>
 
 </resources>
