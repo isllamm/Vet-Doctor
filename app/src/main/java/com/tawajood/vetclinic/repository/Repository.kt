@@ -97,6 +97,12 @@ constructor(private val api: RetrofitApi) {
     suspend fun deleteAccount() =
         api.deleteAccount(PrefsHelper.getLanguage(), PrefsHelper.getToken())
 
+    suspend fun addClinicTimes(day: String, from: String, to: String) =
+        api.addClinicTimes(PrefsHelper.getLanguage(), PrefsHelper.getToken(), day, from, to)
+
+    suspend fun deleteClinicTimes(timeId: String) =
+        api.deleteClinicTimes(PrefsHelper.getLanguage(), PrefsHelper.getToken(), timeId)
+
     suspend fun getNotifications() =
         api.getNotifications(PrefsHelper.getLanguage(), PrefsHelper.getToken())
 

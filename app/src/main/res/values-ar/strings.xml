@@ -107,5 +107,8 @@
     <string name="yes_delete">نعم حذف</string>
     <string name="no">لا</string>
     <string name="profile_updated_successfully">تم تحديث الملف الشخصي بنجاح</string>
-
+    <string name="time_added_successfully">تم اضافة الموعد بنجاح</string>
+    <string name="time_deleted_successfully">تم ازالة الموعد بنجاح</string>
+    <string name="from">من</string>
+    <string name="to">إلى</string>
 </resources>

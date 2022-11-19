@@ -83,6 +83,23 @@ interface RetrofitApi {
         @Field("account_number") account_number: String,
     ): Response<MainResponse<Any>>
 
+    @FormUrlEncoded
+    @POST("profile/profile/add-clinic-times")
+    suspend fun addClinicTimes(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+        @Field("day") day: String,
+        @Field("from") from: String,
+        @Field("to") to: String,
+    ): Response<MainResponse<Any>>
+
+    @POST("profile/profile/delete-clinic-times/{time_id}")
+    suspend fun deleteClinicTimes(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+        @Path("time_id") time_id: String,
+    ): Response<MainResponse<Any>>
+
 
     @GET("profile/profile/show")
     suspend fun getProfile(

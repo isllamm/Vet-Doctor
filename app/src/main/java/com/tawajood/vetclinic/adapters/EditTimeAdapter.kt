@@ -12,7 +12,7 @@ import com.tawajood.vetclinic.pojo.Specialization
 class EditTimeAdapter(private val onDeleteClickListener: OnDeleteClickListener) :
     RecyclerView.Adapter<EditTimeAdapter.EditTimeViewHolder>() {
 
-    var clinic_days = mutableSetOf<ClinicDay>()
+    var clinicDays = mutableListOf<ClinicDay>()
         @SuppressLint("NotifyDataSetChanged")
         set(value) {
             field = value
@@ -20,8 +20,8 @@ class EditTimeAdapter(private val onDeleteClickListener: OnDeleteClickListener) 
         }
 
 
-    fun setTime(clinicDays: MutableSet<ClinicDay>) {
-        this.clinic_days = clinicDays
+    fun setTime(clinicDays: MutableList<ClinicDay>) {
+        this.clinicDays = clinicDays
         notifyDataSetChanged()
     }
 
@@ -45,9 +45,9 @@ class EditTimeAdapter(private val onDeleteClickListener: OnDeleteClickListener) 
         holder: EditTimeAdapter.EditTimeViewHolder,
         position: Int
     ) {
-        holder.binding.day.text = clinic_days.elementAt(position).day.name
-        holder.binding.from.text = clinic_days.elementAt(position).times[0].from
-        holder.binding.to.text = clinic_days.elementAt(position).times[0].to
+        holder.binding.day.text = clinicDays.elementAt(position).day.name
+        holder.binding.from.text = clinicDays.elementAt(position).times[0].from
+        holder.binding.to.text = clinicDays.elementAt(position).times[0].to
 
         holder.binding.ivDelete.setOnClickListener {
             onDeleteClickListener.onDeleteClickListener(position)
@@ -55,7 +55,7 @@ class EditTimeAdapter(private val onDeleteClickListener: OnDeleteClickListener) 
     }
 
     override fun getItemCount(): Int {
-        return clinic_days.size
+        return clinicDays.size
     }
 
     interface OnDeleteClickListener {

@@ -27,15 +27,10 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.gms.maps.model.LatLng
 import com.tawajood.vetclinic.R
-import com.tawajood.vetclinic.adapters.ClinicImagesAdapter
-import com.tawajood.vetclinic.adapters.ClinicTimesAdapter
-import com.tawajood.vetclinic.adapters.EditSpecializationAdapter
-import com.tawajood.vetclinic.adapters.SpecializationAdapter
+import com.tawajood.vetclinic.adapters.*
 import com.tawajood.vetclinic.databinding.FragmentEditProfileBinding
 import com.tawajood.vetclinic.databinding.FragmentProfileBinding
-import com.tawajood.vetclinic.pojo.Specialization
-import com.tawajood.vetclinic.pojo.SpecializationName
-import com.tawajood.vetclinic.pojo.UpdatedBody
+import com.tawajood.vetclinic.pojo.*
 import com.tawajood.vetclinic.ui.main.MainActivity
 import com.tawajood.vetclinic.utils.Constants
 import com.tawajood.vetclinic.utils.Resource
@@ -53,11 +48,14 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
     private lateinit var parent: MainActivity
     private val viewModel: ProfileViewModel by viewModels()
     private lateinit var daysAdapter: ArrayAdapter<String>
+    private var days = mutableListOf<Day>()
     private lateinit var speAdapter: ArrayAdapter<String>
     private var specializations = mutableSetOf<Specialization>()
     private var specializationsTemp = mutableListOf<Specialization>()
     private var specializationNames = mutableListOf<SpecializationName>()
     private lateinit var editSpecializationAdapter: EditSpecializationAdapter
+    private lateinit var editTimeAdapter: EditTimeAdapter
+    private var times = mutableListOf<ClinicDay>()
     private var image: File? = null
     private lateinit var mFusedLocationClient: FusedLocationProviderClient
     private lateinit var currentLatLng: LatLng
@@ -74,6 +72,22 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
         setupDays()
         setupSpecializations()
         setupSpecializationsEdit()
+        setupTimes()
+    }
+
+    private fun setupTimes() {
+        editTimeAdapter = EditTimeAdapter(object : EditTimeAdapter.OnDeleteClickListener {
+            override fun onDeleteClickListener(position: Int) {
+
+
+            }
+
+        })
+        if (times.isNotEmpty()) {
+            binding.rvTimes.isVisible = true
+        }
+        editTimeAdapter.setTime(times)
+        binding.rvTimes.adapter = editTimeAdapter
     }
 
     private fun setupSpecializationsEdit() {
@@ -97,6 +111,14 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
     }
 
     private fun onClick() {
+        binding.btnAddTime.setOnClickListener {
+            viewModel.addClinicTimes(
+                days[binding.timingsSpinner.selectedItemPosition].id.toString(),
+                binding.fromEt.text.toString(),
+                binding.toEt.text.toString(),
+            )
+        }
+
         binding.ivLoc.setOnClickListener {
             if (!SmartLocation.with(requireContext()).location().state()
                     .locationServicesEnabled()
@@ -199,7 +221,7 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
                             speAdapter.add(specializationNames.name)
                         }
 
-                        val days = it.data.days
+                        days = it.data.days
                         days.forEach { days ->
                             daysAdapter.add(days.name)
                         }
@@ -209,6 +231,9 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
                         specializationsTemp = it.data.profile.specializations
 
                         editSpecializationAdapter.specializations = specializations
+
+                        times = it.data.profile.clinic_days
+                        editTimeAdapter.clinicDays = times
 
                     }
                 }
@@ -243,6 +268,54 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
                 }
             }
         }
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.addClinicTimes.collectLatest {
+                parent.hideLoading()
+                when (it) {
+                    is Resource.Error -> {
+                        ToastUtils.showToast(requireContext(), it.message.toString())
+                    }
+                    is Resource.Idle -> {
+
+                    }
+                    is Resource.Loading -> parent.showLoading()
+                    is Resource.Success -> {
+
+                        ResultDialogFragment.newInstance(
+                            getString(R.string.time_added_successfully), R.drawable.done
+                        ).show(
+                            parentFragmentManager,
+                            ResultDialogFragment::class.java.canonicalName
+                        )
+                    }
+                }
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.deleteClinicTimes.collectLatest {
+                parent.hideLoading()
+                when (it) {
+                    is Resource.Error -> {
+                        ToastUtils.showToast(requireContext(), it.message.toString())
+                    }
+                    is Resource.Idle -> {
+
+                    }
+                    is Resource.Loading -> parent.showLoading()
+                    is Resource.Success -> {
+
+                        ResultDialogFragment.newInstance(
+                            getString(R.string.time_deleted_successfully), R.drawable.done
+                        ).show(
+                            parentFragmentManager,
+                            ResultDialogFragment::class.java.canonicalName
+                        )
+                    }
+                }
+            }
+        }
+
     }
 
     private fun setupUI() {

@@ -456,19 +456,119 @@
 
         </RelativeLayout>
 
+        <TextView
+            android:id="@+id/tv112"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:text="@string/from"
+            android:textColor="@color/dark_blue"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/ll_from"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ll_from" />
+
+        <LinearLayout
+            android:id="@+id/ll_from"
+            android:layout_width="@dimen/_160sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_22sdp"
+            android:background="@drawable/full_border_radius_12"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rl_et_timings">
+
+
+            <EditText
+                android:id="@+id/from_et"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:gravity="center"
+                android:hint="08:00"
+                android:importantForAutofill="no"
+                android:inputType="time"
+                android:paddingHorizontal="@dimen/_8sdp"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/_12ssp" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv113"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:text="@string/to"
+            android:textColor="@color/dark_blue"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/ll_to"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ll_to" />
+
+        <LinearLayout
+            android:id="@+id/ll_to"
+            android:layout_width="@dimen/_160sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_22sdp"
+            android:background="@drawable/full_border_radius_12"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_from">
+
+
+            <EditText
+                android:id="@+id/to_et"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:gravity="center"
+                android:hint="09:00"
+                android:importantForAutofill="no"
+                android:inputType="time"
+                android:paddingHorizontal="@dimen/_8sdp"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/_12ssp" />
+
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_add_time"
+            android:layout_width="@dimen/_46sdp"
+            android:layout_height="@dimen/_46sdp"
+            android:backgroundTint="@color/dark_green"
+            android:gravity="center"
+            android:text="+"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20ssp"
+            app:cornerRadius="@dimen/_8sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/ll_to"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ll_to"
+            app:layout_constraintTop_toTopOf="@+id/ll_to" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_times"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rl_et_timings"
-            tools:itemCount="2"
-            tools:listitem="@layout/item_clinic_times" />
+            app:layout_constraintTop_toBottomOf="@+id/ll_to"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_clinic_times_edit" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_edit"

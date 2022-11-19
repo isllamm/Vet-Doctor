@@ -33,6 +33,12 @@ constructor(
     private val _deleteAccount = MutableStateFlow<Resource<Any>>(Resource.Idle())
     val deleteAccount = _deleteAccount.asSharedFlow()
 
+    private val _addClinicTimes = MutableStateFlow<Resource<Any>>(Resource.Idle())
+    val addClinicTimes = _addClinicTimes.asSharedFlow()
+
+    private val _deleteClinicTimes = MutableStateFlow<Resource<Any>>(Resource.Idle())
+    val deleteClinicTimes = _deleteClinicTimes.asSharedFlow()
+
     init {
         getProfile()
         getEditProfile()
@@ -91,6 +97,34 @@ constructor(
             }
         } catch (e: Exception) {
             _deleteAccount.emit(Resource.Error(message = e.message!!))
+        }
+    }
+
+    fun addClinicTimes(day: String, from: String, to: String) = viewModelScope.launch {
+        try {
+            _addClinicTimes.emit(Resource.Loading())
+            val response = handleResponse(repository.addClinicTimes(day, from, to))
+            if (response.status) {
+                _addClinicTimes.emit(Resource.Success(response.data!!))
+            } else {
+                _addClinicTimes.emit(Resource.Error(message = response.msg))
+            }
+        } catch (e: Exception) {
+            _addClinicTimes.emit(Resource.Error(message = e.message!!))
+        }
+    }
+
+    fun deleteClinicTimes(timeId: String) = viewModelScope.launch {
+        try {
+            _deleteClinicTimes.emit(Resource.Loading())
+            val response = handleResponse(repository.deleteClinicTimes(timeId))
+            if (response.status) {
+                _deleteClinicTimes.emit(Resource.Success(response.data!!))
+            } else {
+                _deleteClinicTimes.emit(Resource.Error(message = response.msg))
+            }
+        } catch (e: Exception) {
+            _deleteClinicTimes.emit(Resource.Error(message = e.message!!))
         }
     }
 }

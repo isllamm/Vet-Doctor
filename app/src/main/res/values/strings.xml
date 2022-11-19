@@ -108,6 +108,9 @@
     <string name="yes_delete">Yes Delete</string>
     <string name="no">No</string>
     <string name="profile_updated_successfully">profile updated successfully</string>
-
+    <string name="time_added_successfully">time added successfully</string>
+    <string name="time_deleted_successfully">time deleted successfully</string>
+    <string name="from">From</string>
+    <string name="to">to</string>
 
 </resources>
