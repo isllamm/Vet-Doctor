@@ -118,5 +118,11 @@
     <string name="add_report">Add Report</string>
     <string name="add_medicines">Add Medicines</string>
     <string name="added_reports_and_medicines">Added Reports And Medicines</string>
+    <string name="add">add</string>
+    <string name="fit">Fit</string>
+    <string name="unfit">Unfit</string>
+    <string name="rejected_consultant">consultant rejected</string>
+    <string name="accepted_consultant">consultant accepted</string>
+    <string name="report_added">report added</string>
 
 </resources>

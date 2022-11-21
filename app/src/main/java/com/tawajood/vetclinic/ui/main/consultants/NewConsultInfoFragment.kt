@@ -1,5 +1,6 @@
 package com.tawajood.vetclinic.ui.main.consultants
 
+import ResultDialogFragment
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -65,10 +66,10 @@ class NewConsultInfoFragment : Fragment(R.layout.fragment_new_consult_info) {
         }
 
         binding.tvReject.setOnClickListener {
-
+            viewModel.rejectedConsultants(id)
         }
         binding.btnAccept.setOnClickListener {
-
+            viewModel.acceptedConsultants(id)
         }
     }
 
@@ -114,6 +115,54 @@ class NewConsultInfoFragment : Fragment(R.layout.fragment_new_consult_info) {
 
                         binding.tvNotes.text = consultantInfo.notes
 
+                    }
+                }
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.rejectedConsultant.collectLatest {
+                parent.hideLoading()
+                when (it) {
+                    is Resource.Error -> {
+                        ToastUtils.showToast(requireContext(), it.message.toString())
+                    }
+                    is Resource.Idle -> {
+
+                    }
+                    is Resource.Loading -> parent.showLoading()
+                    is Resource.Success -> {
+
+                        ResultDialogFragment.newInstance(
+                            getString(R.string.rejected_consultant), R.drawable.done
+                        ).show(
+                            parentFragmentManager,
+                            ResultDialogFragment::class.java.canonicalName
+                        )
+                    }
+                }
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.acceptedConsultant.collectLatest {
+                parent.hideLoading()
+                when (it) {
+                    is Resource.Error -> {
+                        ToastUtils.showToast(requireContext(), it.message.toString())
+                    }
+                    is Resource.Idle -> {
+
+                    }
+                    is Resource.Loading -> parent.showLoading()
+                    is Resource.Success -> {
+
+                        ResultDialogFragment.newInstance(
+                            getString(R.string.accepted_consultant), R.drawable.done
+                        ).show(
+                            parentFragmentManager,
+                            ResultDialogFragment::class.java.canonicalName
+                        )
                     }
                 }
             }

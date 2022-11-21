@@ -81,7 +81,7 @@ interface RetrofitApi {
         @Field("account_owner_name") account_owner_name: String,
         @Field("bank_id") bank_id: String,
         @Field("account_number") account_number: String,
-    ): Response<MainResponse<Any>>
+    ): Response<MainResponse<WithdrawResponse>>
 
     @FormUrlEncoded
     @POST("profile/profile/add-clinic-times")
@@ -176,6 +176,20 @@ interface RetrofitApi {
         @Header("token") token: String,
     ): Response<MainResponse<NewConsultantsResponse>>
 
+    @GET("profile/requests/new-accept/{id}")
+    suspend fun acceptedConsultants(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+        @Path("id") id: String,
+    ): Response<MainResponse<Any>>
+
+    @GET("profile/requests/new-reject/{id}")
+    suspend fun rejectedConsultants(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+        @Path("id") id: String,
+    ): Response<MainResponse<Any>>
+
     @GET("profile/requests/new-details/{id}")
     suspend fun getNewConsultantsInfo(
         @Header("lang") lang: String,
@@ -196,6 +210,19 @@ interface RetrofitApi {
         @Header("token") token: String,
         @Path("id") id: String,
     ): Response<MainResponse<AnimalInfoResponse>>
+
+    @GET("profile/requests/parts-body")
+    suspend fun getBodyParts(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+    ): Response<MainResponse<BodyPartsResponse>>
+
+    @POST("profile/requests/current-add-report")
+    suspend fun addReport(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+        @Body reportBody: ReportBody
+    ): Response<MainResponse<Any>>
 
     @GET("reviews/show")
     suspend fun getReviews(

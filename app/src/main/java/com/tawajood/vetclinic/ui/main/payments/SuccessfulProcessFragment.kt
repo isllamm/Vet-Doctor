@@ -8,6 +8,7 @@ import com.tawajood.vetclinic.databinding.FragmentSuccessfulProcessBinding
 import com.tawajood.vetclinic.ui.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SuccessfulProcessFragment : Fragment(R.layout.fragment_successful_process) {
 
 
@@ -20,6 +21,7 @@ class SuccessfulProcessFragment : Fragment(R.layout.fragment_successful_process)
 
         binding = FragmentSuccessfulProcessBinding.bind(requireView())
         parent = requireActivity() as MainActivity
+
 
         setupUI()
     }

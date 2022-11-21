@@ -1,6 +1,7 @@
 package com.tawajood.vetclinic.ui.main.payments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -50,6 +51,7 @@ class PaymentsFragment : Fragment(R.layout.fragment_payments) {
                 binding.etAccountNum.text.toString()
             )
         }
+
     }
 
     private fun setupSpeBanks() {
@@ -83,24 +85,28 @@ class PaymentsFragment : Fragment(R.layout.fragment_payments) {
                 }
             }
         }
-
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.withdraw.collectLatest {
                 parent.hideLoading()
                 when (it) {
                     is Resource.Error -> {
-                        parent.navController.navigate(R.id.failedProcessFragment)
+                        ToastUtils.showToast(requireContext(), it.data!!.scalar)
+
+                        //parent.navController.navigate(R.id.action_paymentsFragment_to_failedProcessFragment)
                     }
                     is Resource.Idle -> {
 
                     }
                     is Resource.Loading -> parent.showLoading()
                     is Resource.Success -> {
-                        parent.navController.navigate(R.id.successfulProcessFragment)
+                        ToastUtils.showToast(requireContext(), it.data!!.scalar)
+
+                        //parent.navController.navigate(R.id.action_paymentsFragment_to_successfulProcessFragment)
                     }
                 }
             }
         }
+
     }
 
     private fun setupUI() {

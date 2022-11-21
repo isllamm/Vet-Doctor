@@ -9,7 +9,26 @@
         android:id="@+id/menuFragment"
         android:name="com.tawajood.vetclinic.ui.main.menu.MenuFragment"
         android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu" />
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_aboutUsFragment"
+            app:destination="@id/aboutUsFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_termsFragment"
+            app:destination="@id/termsFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_supportFragment"
+            app:destination="@id/supportFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_reviewsFragment"
+            app:destination="@id/reviewsFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/aboutUsFragment"
         android:name="com.tawajood.vetclinic.ui.main.about_us.AboutUsFragment"
@@ -29,12 +48,26 @@
         android:id="@+id/paymentsFragment"
         android:name="com.tawajood.vetclinic.ui.main.payments.PaymentsFragment"
         android:label="fragment_payments"
-        tools:layout="@layout/fragment_payments" />
+        tools:layout="@layout/fragment_payments" >
+        <action
+            android:id="@+id/action_paymentsFragment_to_successfulProcessFragment"
+            app:destination="@id/successfulProcessFragment" />
+        <action
+            android:id="@+id/action_paymentsFragment_to_failedProcessFragment"
+            app:destination="@id/failedProcessFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.tawajood.vetclinic.ui.main.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_deleteAccountDialogFragment"
+            app:destination="@id/deleteAccountDialogFragment" />
+    </fragment>
     <fragment
         android:id="@+id/editProfileFragment"
         android:name="com.tawajood.vetclinic.ui.main.profile.EditProfileFragment"
@@ -64,22 +97,44 @@
         android:id="@+id/myConsultantsFragment"
         android:name="com.tawajood.vetclinic.ui.main.consultants.MyConsultantsFragment"
         android:label="fragment_my_consultants"
-        tools:layout="@layout/fragment_my_consultants" />
+        tools:layout="@layout/fragment_my_consultants" >
+        <action
+            android:id="@+id/action_myConsultantsFragment_to_previousConsultInfoFragment"
+            app:destination="@id/previousConsultInfoFragment" />
+        <action
+            android:id="@+id/action_myConsultantsFragment_to_newConsultInfoFragment"
+            app:destination="@id/newConsultInfoFragment" />
+        <action
+            android:id="@+id/action_myConsultantsFragment_to_currentConsultInfoFragment"
+            app:destination="@id/currentConsultInfoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/previousConsultInfoFragment"
         android:name="com.tawajood.vetclinic.ui.main.consultants.PreviousConsultInfoFragment"
         android:label="fragment_previous_consult_info"
-        tools:layout="@layout/fragment_previous_consult_info" />
+        tools:layout="@layout/fragment_previous_consult_info" >
+        <action
+            android:id="@+id/action_previousConsultInfoFragment_to_previousAnimalInfoFragment"
+            app:destination="@id/previousAnimalInfoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/newConsultInfoFragment"
         android:name="com.tawajood.vetclinic.ui.main.consultants.NewConsultInfoFragment"
         android:label="fragment_new_consult_info"
-        tools:layout="@layout/fragment_new_consult_info" />
+        tools:layout="@layout/fragment_new_consult_info" >
+        <action
+            android:id="@+id/action_newConsultInfoFragment_to_previousAnimalInfoFragment"
+            app:destination="@id/previousAnimalInfoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/currentConsultInfoFragment"
         android:name="com.tawajood.vetclinic.ui.main.consultants.CurrentConsultInfoFragment"
         android:label="fragment_current_consult_info"
-        tools:layout="@layout/fragment_current_consult_info" />
+        tools:layout="@layout/fragment_current_consult_info" >
+        <action
+            android:id="@+id/action_currentConsultInfoFragment_to_addReportFragment"
+            app:destination="@id/addReportFragment" />
+    </fragment>
     <fragment
         android:id="@+id/previousAnimalInfoFragment"
         android:name="com.tawajood.vetclinic.ui.main.pet.PreviousAnimalInfoFragment"
@@ -95,4 +150,9 @@
         android:name="com.tawajood.vetclinic.ui.main.profile.DeleteAccountDialogFragment"
         android:label="fragment_delete_account_dialog"
         tools:layout="@layout/fragment_delete_account_dialog" />
+    <fragment
+        android:id="@+id/addReportFragment"
+        android:name="com.tawajood.vetclinic.ui.main.reports.AddReportFragment"
+        android:label="fragment_add_report"
+        tools:layout="@layout/fragment_add_report" />
 </navigation>

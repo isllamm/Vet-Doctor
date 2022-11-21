@@ -10,6 +10,8 @@ import com.tawajood.vetclinic.databinding.FragmentFailedProcessBinding
 import com.tawajood.vetclinic.ui.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class FailedProcessFragment : Fragment(R.layout.fragment_failed_process) {
 
 

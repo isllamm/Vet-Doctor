@@ -4,6 +4,7 @@ import PrefsHelper
 import com.tawajood.vetclinic.api.RetrofitApi
 import com.tawajood.vetclinic.pojo.MainResponse
 import com.tawajood.vetclinic.pojo.RegisterBody
+import com.tawajood.vetclinic.pojo.ReportBody
 import com.tawajood.vetclinic.pojo.UpdatedBody
 import com.tawajood.vetclinic.utils.toMap
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -130,6 +131,17 @@ constructor(private val api: RetrofitApi) {
     suspend fun getNewAnimalInfo(id: String) =
         api.getNewAnimalInfo(PrefsHelper.getLanguage(), PrefsHelper.getToken(), id)
 
+    suspend fun acceptedConsultants(id: String) =
+        api.acceptedConsultants(PrefsHelper.getLanguage(), PrefsHelper.getToken(), id)
+
+    suspend fun rejectedConsultants(id: String) =
+        api.rejectedConsultants(PrefsHelper.getLanguage(), PrefsHelper.getToken(), id)
+
+    suspend fun getBodyParts() =
+        api.getBodyParts(PrefsHelper.getLanguage(), PrefsHelper.getToken())
+
+    suspend fun addReport(reportBody: ReportBody) =
+        api.addReport(PrefsHelper.getLanguage(), PrefsHelper.getToken(), reportBody)
 
     suspend fun getReviews() =
         api.getReviews(PrefsHelper.getLanguage(), PrefsHelper.getToken())

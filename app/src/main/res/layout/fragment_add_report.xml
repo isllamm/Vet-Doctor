@@ -11,6 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_body_parts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_body_parts" />
+
         <TextView
             android:id="@+id/tv1"
             android:layout_width="wrap_content"
@@ -21,7 +33,7 @@
             android:textColor="@color/dark_blue"
             android:textSize="@dimen/_14ssp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/rv_body_parts" />
 
         <LinearLayout
             android:id="@+id/ll_report"
@@ -97,26 +109,26 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_add"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_46sdp"
+            android:layout_margin="@dimen/_12sdp"
             android:layout_marginStart="@dimen/_12sdp"
-            android:layout_marginTop="@dimen/_50sdp"
-            android:text="@string/added_reports_and_medicines"
-            android:textColor="@color/dark_blue"
-            android:textSize="@dimen/_14ssp"
+            android:layout_marginTop="@dimen/_22sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:backgroundTint="@color/blue_app"
+            android:text="@string/add"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp"
+            app:cornerRadius="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ll_medicine" />
 
-        <View
-            android:layout_width="@dimen/_130sdp"
-            android:layout_height="@dimen/_1sdp"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:background="@color/divider"
-            app:layout_constraintBottom_toBottomOf="@+id/tv3"
-            app:layout_constraintStart_toEndOf="@+id/tv3"
-            app:layout_constraintTop_toTopOf="@+id/tv3" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

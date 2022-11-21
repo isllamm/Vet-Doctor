@@ -44,6 +44,14 @@ constructor(
         MutableStateFlow<Resource<NewConsultantInfoResponse>>(Resource.Idle())
     val newConsultantInfo = _newConsultantInfo.asSharedFlow()
 
+    private val _acceptedConsultant =
+        MutableStateFlow<Resource<Any>>(Resource.Idle())
+    val acceptedConsultant = _acceptedConsultant.asSharedFlow()
+
+    private val _rejectedConsultant =
+        MutableStateFlow<Resource<Any>>(Resource.Idle())
+    val rejectedConsultant = _rejectedConsultant.asSharedFlow()
+
     init {
         getPreviousConsultants()
         getCurrentConsultants()
@@ -90,6 +98,34 @@ constructor(
         } catch (e: Exception) {
             Log.d("islam", "getNewConsultants: ${e.message}")
             _newConsultants.emit(Resource.Error(message = e.message!!))
+        }
+    }
+
+    fun rejectedConsultants(id: String) = viewModelScope.launch {
+        try {
+            _rejectedConsultant.emit(Resource.Loading())
+            val response = handleResponse(repository.rejectedConsultants(id))
+            if (response.status) {
+                _rejectedConsultant.emit(Resource.Success(response.data!!))
+            } else {
+                _rejectedConsultant.emit(Resource.Error(message = response.msg))
+            }
+        } catch (e: Exception) {
+            _rejectedConsultant.emit(Resource.Error(message = e.message!!))
+        }
+    }
+
+    fun acceptedConsultants(id: String) = viewModelScope.launch {
+        try {
+            _acceptedConsultant.emit(Resource.Loading())
+            val response = handleResponse(repository.acceptedConsultants(id))
+            if (response.status) {
+                _acceptedConsultant.emit(Resource.Success(response.data!!))
+            } else {
+                _acceptedConsultant.emit(Resource.Error(message = response.msg))
+            }
+        } catch (e: Exception) {
+            _acceptedConsultant.emit(Resource.Error(message = e.message!!))
         }
     }
 

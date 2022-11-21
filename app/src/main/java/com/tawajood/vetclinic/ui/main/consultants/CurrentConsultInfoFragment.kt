@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -54,7 +55,11 @@ class CurrentConsultInfoFragment : Fragment(R.layout.fragment_current_consult_in
     private fun onClick() {
 
         binding.tvAddDetails.setOnClickListener {
-
+            parent.navController.navigate(
+                R.id.addReportFragment, bundleOf(
+                    Constants.CONSULTANT_ID to id
+                )
+            )
         }
     }
 

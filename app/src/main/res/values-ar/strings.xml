@@ -117,5 +117,10 @@
     <string name="add_report">اضافة تقارير</string>
     <string name="add_medicines">اضافة وصفات</string>
     <string name="added_reports_and_medicines">التقارير و الوصفات المضافة</string>
-
+    <string name="add">إضافة</string>
+    <string name="fit">سليم</string>
+    <string name="unfit">غير سليم</string>
+    <string name="rejected_consultant">تم رفض الطلب</string>
+    <string name="accepted_consultant">تم قبول الطلب</string>
+    <string name="report_added">تم اضافة النقرير</string>
 </resources>

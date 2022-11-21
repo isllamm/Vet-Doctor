@@ -3,6 +3,7 @@ package com.tawajood.vetclinic.ui.main
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
@@ -22,7 +23,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     lateinit var navController: NavController
     private lateinit var loadingUtil: LoadingUtil
-    private lateinit var header: View
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +39,8 @@ class MainActivity : AppCompatActivity() {
     private fun onClick() {
 
         binding.toolbar.ivBack.setOnClickListener {
-            onBackPressed()
+            navController.popBackStack()
+            Log.d("islam", "back: i'm back")
         }
     }
 
@@ -73,7 +74,12 @@ class MainActivity : AppCompatActivity() {
         binding.toolbar.title.text = title
     }
 
+    fun back() {
+
+    }
+
     fun showBottomNav(isVisible: Boolean) {
         binding.bottomNavView.isVisible = isVisible
+        binding.toolbar.ivBack.isVisible = !isVisible
     }
 }

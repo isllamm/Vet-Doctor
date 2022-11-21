@@ -65,7 +65,7 @@ class ResultDialogFragment : DialogFragment() {
 
     private fun onClick() {
         binding.okTv.setOnClickListener {
-            //parent.onBackPressed()
+            parent.onBackPressed()
             dismiss()
         }
     }

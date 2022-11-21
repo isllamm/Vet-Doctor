@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tawajood.vetclinic.pojo.ContactUsResponse
 import com.tawajood.vetclinic.pojo.PaymentsResponse
+import com.tawajood.vetclinic.pojo.WithdrawResponse
 import com.tawajood.vetclinic.repository.Repository
 import com.tawajood.vetclinic.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,7 +24,7 @@ constructor(
     private val _money = MutableStateFlow<Resource<PaymentsResponse>>(Resource.Idle())
     val money = _money.asSharedFlow()
 
-    private val _withdraw = MutableStateFlow<Resource<Any>>(Resource.Idle())
+    private val _withdraw = MutableStateFlow<Resource<WithdrawResponse>>(Resource.Idle())
     val withdraw = _withdraw.asSharedFlow()
 
     init {
