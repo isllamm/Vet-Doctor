@@ -1,5 +1,7 @@
 package com.tawajood.vetclinic.ui.main.consultants
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -49,7 +51,11 @@ class PreviousConsultInfoFragment : Fragment(R.layout.fragment_previous_consult_
 
     private fun onClick() {
         binding.ivLocation.setOnClickListener {
-
+            val gmmIntentUri =
+                Uri.parse("geo:${consultantInfo.lat},${consultantInfo.lng}?z=zoom")
+            val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+            mapIntent.setPackage("com.google.android.apps.maps")
+            startActivity(mapIntent)
         }
 
         binding.tvPetDetails.setOnClickListener {

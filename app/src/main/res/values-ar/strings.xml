@@ -123,4 +123,5 @@
     <string name="rejected_consultant">تم رفض الطلب</string>
     <string name="accepted_consultant">تم قبول الطلب</string>
     <string name="report_added">تم اضافة النقرير</string>
+    <string name="clinic_details">تفاصيل العيادة</string>
 </resources>

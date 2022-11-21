@@ -38,7 +38,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentProfileBinding.bind(requireView())
         parent = requireActivity() as MainActivity
-
+        viewModel.getProfile()
         setupUI()
         onClick()
         observeData()
@@ -97,13 +97,13 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                         Glide.with(requireContext()).load(profile.image).into(binding.imgClinic)
                         binding.tvFees.text = profile.consultation_fees.toString()
                         binding.tvName.text = profile.name
-                        binding.tvNumOfRates.text = profile.count_clinic_rate.toString()
+                        binding.tvNumOfRates.text = "(" + profile.count_clinic_rate.toString() + ")"
                         binding.tvRating.text = profile.rate.toString()
                         binding.tvDetails.text = profile.details
                         binding.clinicNameEt.text = profile.name
                         binding.emailEt.text = profile.email
                         binding.phoneEt.text = profile.phone
-                        binding.licenseNumEt.text = "(" + profile.registration_number + ")"
+                        binding.licenseNumEt.text = profile.registration_number
                         binding.addressEt.text = profile.address
                         timesAdapter.times = profile.clinic_days
                         spAdapter.specialization = profile.specializations

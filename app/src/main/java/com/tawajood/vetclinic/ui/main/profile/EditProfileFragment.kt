@@ -65,7 +65,7 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
         binding = FragmentEditProfileBinding.bind(requireView())
         parent = requireActivity() as MainActivity
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
-
+        viewModel.getEditProfile()
         setupUI()
         onClick()
         observeData()
@@ -78,8 +78,7 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
     private fun setupTimes() {
         editTimeAdapter = EditTimeAdapter(object : EditTimeAdapter.OnDeleteClickListener {
             override fun onDeleteClickListener(position: Int) {
-
-
+                viewModel.deleteClinicTimes(times[position].times[0].id.toString())
             }
 
         })
@@ -147,7 +146,7 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
                     binding.licenseNumEt.text.toString(),
                     binding.feesEt.text.toString(),
                     binding.addressEt.text.toString(),
-                    "dddddd",
+                    binding.detailsEt.text.toString(),
                     1,
                     PrefsHelper.getCurrentLat().toString(),
                     PrefsHelper.getCurrentLng().toString(),
@@ -216,6 +215,7 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
                         binding.licenseNumEt.setText(profile.registration_number)
                         binding.addressEt.setText(profile.address)
                         binding.feesEt.setText(profile.consultation_fees.toString())
+                        binding.detailsEt.setText(profile.details)
                         specializationNames = it.data.specializations
                         specializationNames.forEach { specializationNames ->
                             speAdapter.add(specializationNames.name)

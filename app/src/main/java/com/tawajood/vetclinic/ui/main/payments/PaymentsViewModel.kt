@@ -9,6 +9,7 @@ import com.tawajood.vetclinic.repository.Repository
 import com.tawajood.vetclinic.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import handleResponse
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
@@ -24,7 +25,7 @@ constructor(
     private val _money = MutableStateFlow<Resource<PaymentsResponse>>(Resource.Idle())
     val money = _money.asSharedFlow()
 
-    private val _withdraw = MutableStateFlow<Resource<WithdrawResponse>>(Resource.Idle())
+    private val _withdraw = MutableSharedFlow<Resource<WithdrawResponse>>()
     val withdraw = _withdraw.asSharedFlow()
 
     init {

@@ -50,6 +50,8 @@ class PaymentsFragment : Fragment(R.layout.fragment_payments) {
                 banks[binding.typeBank.selectedItemPosition].id.toString(),
                 binding.etAccountNum.text.toString()
             )
+
+
         }
 
     }
@@ -85,23 +87,21 @@ class PaymentsFragment : Fragment(R.layout.fragment_payments) {
                 }
             }
         }
-        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+        lifecycleScope.launchWhenStarted {
             viewModel.withdraw.collectLatest {
                 parent.hideLoading()
                 when (it) {
                     is Resource.Error -> {
-                        ToastUtils.showToast(requireContext(), it.data!!.scalar)
+                        parent.navController.navigate(R.id.failedProcessFragment)
 
-                        //parent.navController.navigate(R.id.action_paymentsFragment_to_failedProcessFragment)
                     }
                     is Resource.Idle -> {
 
                     }
                     is Resource.Loading -> parent.showLoading()
                     is Resource.Success -> {
-                        ToastUtils.showToast(requireContext(), it.data!!.scalar)
+                        parent.navController.navigate(R.id.successfulProcessFragment)
 
-                        //parent.navController.navigate(R.id.action_paymentsFragment_to_successfulProcessFragment)
                     }
                 }
             }
@@ -112,6 +112,7 @@ class PaymentsFragment : Fragment(R.layout.fragment_payments) {
     private fun setupUI() {
         parent.setTitle(getString(R.string.payments))
         parent.showBottomNav(false)
+
 
     }
 

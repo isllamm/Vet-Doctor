@@ -42,8 +42,11 @@ class PreviousAnimalInfoFragment : Fragment(R.layout.fragment_animal_info) {
         id = requireArguments().getString(Constants.PET_ID).toString()
         type = requireArguments().getString(Constants.TYPE).toString()
 
-        Log.d("islam", "onViewCreated:type $type")
-        Log.d("islam", "onViewCreated:id $id")
+        if (type == "1") {
+            viewModel.getPreviousAnimalInfo(id)
+        } else if (type == "2") {
+            viewModel.getNewAnimalInfo(id)
+        }
 
         setupUI()
         observeData()
@@ -134,11 +137,7 @@ class PreviousAnimalInfoFragment : Fragment(R.layout.fragment_animal_info) {
     }
 
     private fun setupUI() {
-        if (type == "1") {
-            viewModel.getPreviousAnimalInfo(id)
-        } else if (type == "2") {
-            viewModel.getNewAnimalInfo(id)
-        }
+
         parent.setTitle(getString(R.string.pet_info))
         parent.showBottomNav(false)
     }

@@ -124,5 +124,6 @@
     <string name="rejected_consultant">consultant rejected</string>
     <string name="accepted_consultant">consultant accepted</string>
     <string name="report_added">report added</string>
+    <string name="clinic_details">Clinic Details</string>
 
 </resources>
