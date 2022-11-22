@@ -76,8 +76,10 @@ class PaymentsFragment : Fragment(R.layout.fragment_payments) {
                     is Resource.Loading -> parent.showLoading()
                     is Resource.Success -> {
                         val data = it.data!!.clinic
-                        binding.withdraw.text = data.valid_balance.toString()
-                        binding.pending.text = data.suspended_balance.toString()
+                        binding.withdraw.text =
+                            data.valid_balance.toString() + " " + getString(R.string.Rs)
+                        binding.pending.text =
+                            data.suspended_balance.toString() + " " + getString(R.string.Rs)
 
                         banks = it.data.banks
                         banks.forEach { bank ->

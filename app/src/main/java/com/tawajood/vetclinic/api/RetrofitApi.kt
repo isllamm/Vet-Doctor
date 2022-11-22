@@ -127,8 +127,8 @@ interface RetrofitApi {
 
     @POST("profile/profile/update")
     suspend fun updateProfile(
-        @Header("lang") lang: String,
         @Header("token") token: String,
+        @Header("lang") lang: String,
         @Body updatedBody: UpdatedBody
     ): Response<MainResponse<Any>>
 
@@ -223,6 +223,27 @@ interface RetrofitApi {
         @Header("token") token: String,
         @Body reportBody: ReportBody
     ): Response<MainResponse<Any>>
+
+
+    @FormUrlEncoded
+    @POST("profile/chats/send-message")
+    suspend fun sendMessage(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+        @Field("user_id") user_id: String,
+        @Field("request_id") request_id: String,
+        @Field("message") message: String,
+        @Field("message_type") message_type: String
+    ): Response<MainResponse<Any>>
+
+    @FormUrlEncoded
+    @POST("profile/chats/get-chat")
+    suspend fun getChat(
+        @Header("lang") lang: String,
+        @Header("token") token: String,
+        @Field("user_id") user_id: String,
+        @Field("request_id") request_id: String
+    ): Response<MainResponse<ChatResponse>>
 
     @GET("reviews/show")
     suspend fun getReviews(

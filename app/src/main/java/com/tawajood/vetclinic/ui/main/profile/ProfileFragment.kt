@@ -95,7 +95,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                     is Resource.Success -> {
                         val profile = it.data!!
                         Glide.with(requireContext()).load(profile.image).into(binding.imgClinic)
-                        binding.tvFees.text = profile.consultation_fees.toString()
+                        binding.tvFees.text =
+                            profile.consultation_fees.toString() + " " + getString(R.string.Rs)
+                        binding.tvDuration.text =
+                            profile.consultation_duration + " " + getString(R.string.duration1)
                         binding.tvName.text = profile.name
                         binding.tvNumOfRates.text = "(" + profile.count_clinic_rate.toString() + ")"
                         binding.tvRating.text = profile.rate.toString()
@@ -103,12 +106,12 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                         binding.clinicNameEt.text = profile.name
                         binding.emailEt.text = profile.email
                         binding.phoneEt.text = profile.phone
+                        binding.ccp.setCountryForPhoneCode(profile.country_code.toInt())
                         binding.licenseNumEt.text = profile.registration_number
                         binding.addressEt.text = profile.address
                         timesAdapter.times = profile.clinic_days
                         spAdapter.specialization = profile.specializations
                         imagesAdapter.images = profile.clinic_images
-
 
                         PrefsHelper.setUserImage(profile.image)
                         PrefsHelper.setUserId(profile.id)

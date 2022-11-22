@@ -7,6 +7,7 @@ data class ProfileResponse(
     val rate: Float,
     val count_clinic_rate: Int,
     val consultation_fees: Int,
+    val consultation_duration: String,
     val details: String,
     val phone: String,
     val country_code: String,

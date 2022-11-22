@@ -21,16 +21,14 @@ fun UpdatedBody.toMap(): Map<String, RequestBody> {
         registration_number.toRequestBody("multipart/form-data".toMediaTypeOrNull())
     updateMap["consultation_fees"] =
         consultation_fees.toRequestBody("multipart/form-data".toMediaTypeOrNull())
-    updateMap["address"] =
-        address.toRequestBody("multipart/form-data".toMediaTypeOrNull())
-    updateMap["details"] =
-        details.toRequestBody("multipart/form-data".toMediaTypeOrNull())
+    updateMap["consultation_duration"] =
+        consultation_duration.toRequestBody("multipart/form-data".toMediaTypeOrNull())
+    updateMap["address"] = address.toRequestBody("multipart/form-data".toMediaTypeOrNull())
+    updateMap["details"] = details.toRequestBody("multipart/form-data".toMediaTypeOrNull())
     updateMap["status_online"] =
         status_online.toString().toRequestBody("multipart/form-data".toMediaTypeOrNull())
-    updateMap["lat"] =
-        lat.toRequestBody("multipart/form-data".toMediaTypeOrNull())
-    updateMap["lng"] =
-        lng.toRequestBody("multipart/form-data".toMediaTypeOrNull())
+    updateMap["lat"] = lat.toRequestBody("multipart/form-data".toMediaTypeOrNull())
+    updateMap["lng"] = lng.toRequestBody("multipart/form-data".toMediaTypeOrNull())
 
 
     return updateMap

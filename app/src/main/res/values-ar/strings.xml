@@ -50,7 +50,7 @@
     <string name="account_number">رقم الحساب</string>
     <string name="withdraw">سحب المبلغ</string>
     <string name="amount_available_to_withdraw">المبلغ المتاح سحبه</string>
-    <string name="examination_fee">رسوم الكشف</string>
+    <string name="examination_fee">رسوم الاستشارة</string>
     <string name="specializations">التخصصات</string>
     <string name="another_images_for_the_clinic">صور أخرى للعيادة</string>
     <string name="clinic_timings">مواعيد العيادة</string>
@@ -124,4 +124,8 @@
     <string name="accepted_consultant">تم قبول الطلب</string>
     <string name="report_added">تم اضافة النقرير</string>
     <string name="clinic_details">تفاصيل العيادة</string>
+    <string name="Rs">ر.س</string>
+    <string name="consult_duration">مدة الاستشارة</string>
+    <string name="duration1">دقيقة</string>
+    <string name="image">image</string>
 </resources>

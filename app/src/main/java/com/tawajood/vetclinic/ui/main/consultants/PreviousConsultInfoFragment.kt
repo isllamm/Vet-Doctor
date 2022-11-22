@@ -3,11 +3,8 @@ package com.tawajood.vetclinic.ui.main.consultants
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
@@ -15,9 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.tawajood.vetclinic.R
 import com.tawajood.vetclinic.adapters.ClinicImagesAdapter
-import com.tawajood.vetclinic.databinding.FragmentMyConsultantsBinding
 import com.tawajood.vetclinic.databinding.FragmentPreviousConsultInfoBinding
-import com.tawajood.vetclinic.pojo.Consultant
 import com.tawajood.vetclinic.pojo.ConsultantInfo
 import com.tawajood.vetclinic.pojo.Pet
 import com.tawajood.vetclinic.ui.main.MainActivity

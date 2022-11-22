@@ -9,9 +9,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -29,7 +27,6 @@ import com.google.android.gms.maps.model.LatLng
 import com.tawajood.vetclinic.R
 import com.tawajood.vetclinic.adapters.*
 import com.tawajood.vetclinic.databinding.FragmentEditProfileBinding
-import com.tawajood.vetclinic.databinding.FragmentProfileBinding
 import com.tawajood.vetclinic.pojo.*
 import com.tawajood.vetclinic.ui.main.MainActivity
 import com.tawajood.vetclinic.utils.Constants
@@ -145,6 +142,7 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
                     binding.emailEt.text.toString(),
                     binding.licenseNumEt.text.toString(),
                     binding.feesEt.text.toString(),
+                    binding.durationEt.text.toString(),
                     binding.addressEt.text.toString(),
                     binding.detailsEt.text.toString(),
                     1,
@@ -214,7 +212,9 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
                         binding.phoneEt.setText(profile.phone)
                         binding.licenseNumEt.setText(profile.registration_number)
                         binding.addressEt.setText(profile.address)
+                        binding.ccp.setCountryForPhoneCode(profile.country_code.toInt())
                         binding.feesEt.setText(profile.consultation_fees.toString())
+                        binding.durationEt.setText(profile.consultation_duration)
                         binding.detailsEt.setText(profile.details)
                         specializationNames = it.data.specializations
                         specializationNames.forEach { specializationNames ->

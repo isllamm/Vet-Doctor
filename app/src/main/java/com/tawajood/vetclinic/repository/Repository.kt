@@ -143,6 +143,29 @@ constructor(private val api: RetrofitApi) {
     suspend fun addReport(reportBody: ReportBody) =
         api.addReport(PrefsHelper.getLanguage(), PrefsHelper.getToken(), reportBody)
 
+    suspend fun getChat(request_id: String, user_id: String) =
+        api.getChat(
+            PrefsHelper.getLanguage(),
+            PrefsHelper.getToken(),
+            user_id,
+            request_id
+        )
+
+    suspend fun sendMessage(
+        request_id: String,
+        user_id: String,
+        message: String,
+        message_type: String
+    ) =
+        api.sendMessage(
+            PrefsHelper.getLanguage(),
+            PrefsHelper.getToken(),
+            request_id,
+            user_id,
+            message,
+            message_type
+        )
+
     suspend fun getReviews() =
         api.getReviews(PrefsHelper.getLanguage(), PrefsHelper.getToken())
 }

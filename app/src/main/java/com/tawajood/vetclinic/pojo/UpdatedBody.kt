@@ -11,12 +11,12 @@ data class UpdatedBody(
     val email: String,
     val registration_number: String,
     val consultation_fees: String,
+    val consultation_duration: String,
     val address: String,
     val details: String,
     val status_online: Int,
     val lat: String,
     val lng: String,
     val image: File?,
-    //@SerializedName("clinic_specializations[]")
     val clinic_specializations: ArrayList<String>,
 )

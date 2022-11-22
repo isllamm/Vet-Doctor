@@ -125,5 +125,9 @@
     <string name="accepted_consultant">consultant accepted</string>
     <string name="report_added">report added</string>
     <string name="clinic_details">Clinic Details</string>
+    <string name="Rs">RS</string>
+    <string name="consult_duration">Consult Duration</string>
+    <string name="duration1">m</string>
+    <string name="image">image</string>
 
 </resources>

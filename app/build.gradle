@@ -45,6 +45,11 @@ android {
 
 dependencies {
 
+    implementation("com.google.android.play:review:2.0.1")
+
+    // For Kotlin users also import the Kotlin extensions library for Play In-App Review:
+    implementation("com.google.android.play:review-ktx:2.0.1")
+
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     def lifecycle_version = "2.4.1"
 

@@ -155,4 +155,9 @@
         android:name="com.tawajood.vetclinic.ui.main.reports.AddReportFragment"
         android:label="fragment_add_report"
         tools:layout="@layout/fragment_add_report" />
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.tawajood.vetclinic.ui.main.chat.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" />
 </navigation>
