@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
@@ -13,6 +14,7 @@ import com.tawajood.vetclinic.R
 import com.tawajood.vetclinic.databinding.FragmentMenuBinding
 
 import com.tawajood.vetclinic.ui.main.MainActivity
+import com.tawajood.vetclinic.utils.Constants
 import com.tawajood.vetclinic.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -98,7 +100,11 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         }
 
         binding.clRate.setOnClickListener {
-            rateApp()
+            parent.navController.navigate(
+                R.id.chatFragment,
+                bundleOf(Constants.CONSULTANT_ID to "1")
+            )
+            //rateApp()
         }
     }
 

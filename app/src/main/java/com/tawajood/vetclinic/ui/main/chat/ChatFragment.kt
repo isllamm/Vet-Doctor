@@ -1,5 +1,6 @@
 package com.tawajood.vetclinic.ui.main.chat
 
+import PrefsHelper
 import ToastUtils
 import android.os.Bundle
 import android.text.TextUtils
@@ -36,9 +37,9 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentChatBinding.bind(requireView())
         parent = requireActivity() as MainActivity
-        //requestId = requireArguments().getString(Constants.CONSULTANT_ID).toString()
+        requestId = requireArguments().getString(Constants.CONSULTANT_ID).toString()
 
-        viewModel.getChat("1","12")
+        viewModel.getChat(requestId, "12")
 
         setupUI()
         observeData()
@@ -48,12 +49,17 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
 
     private fun onClick() {
         binding.refresher.setOnRefreshListener {
-            viewModel.getChat("1","12")
+            viewModel.getChat(requestId, "12")
         }
 
         binding.sendImg.setOnClickListener {
             if (!TextUtils.isEmpty(binding.messageEt.text) || image != null) {
-                viewModel.sendMessage("1","12", binding.messageEt.text.toString(), "0")
+                viewModel.sendMessage(
+                    requestId,
+                    "12",
+                    binding.messageEt.text.toString(),
+                    "0"
+                )
 
 
 
@@ -97,6 +103,26 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
                         binding.messagesRv.scrollToPosition(messages.size - 1)
                         image = null
                         binding.imageCard.isVisible = false
+
+                    }
+                }
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.sendMessage.collectLatest {
+                binding.refresher.isRefreshing = false
+                parent.hideLoading()
+                when (it) {
+                    is Resource.Error -> ToastUtils.showToast(
+                        requireContext(),
+                        it.message.toString()
+                    )
+                    is Resource.Idle -> {
+                    }
+                    is Resource.Loading -> {}
+                    is Resource.Success -> {
+
 
                     }
                 }

@@ -54,7 +54,11 @@ class CurrentConsultInfoFragment : Fragment(R.layout.fragment_current_consult_in
 
     private fun onClick() {
         binding.btnChat.setOnClickListener {
-            parent.navController.navigate(R.id.chatFragment)
+            parent.navController.navigate(
+                R.id.chatFragment, bundleOf(
+                    Constants.CONSULTANT_ID to id
+                )
+            )
         }
 
         binding.tvAddDetails.setOnClickListener {
