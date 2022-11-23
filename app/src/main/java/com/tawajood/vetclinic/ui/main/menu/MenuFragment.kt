@@ -98,7 +98,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         }
 
         binding.clRate.setOnClickListener {
-            parent.navController.navigate(R.id.chatFragment)
+            rateApp()
         }
     }
 

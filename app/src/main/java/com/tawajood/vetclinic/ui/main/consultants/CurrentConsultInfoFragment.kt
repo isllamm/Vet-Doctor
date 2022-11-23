@@ -53,6 +53,9 @@ class CurrentConsultInfoFragment : Fragment(R.layout.fragment_current_consult_in
     }
 
     private fun onClick() {
+        binding.btnChat.setOnClickListener {
+            parent.navController.navigate(R.id.chatFragment)
+        }
 
         binding.tvAddDetails.setOnClickListener {
             parent.navController.navigate(
@@ -107,8 +110,11 @@ class CurrentConsultInfoFragment : Fragment(R.layout.fragment_current_consult_in
 
                         if (consultantInfo.paid == 0) {
                             binding.status.text = getText(R.string.current_consultant_not_paid)
+                            binding.btnChat.isVisible = false
                         } else if (consultantInfo.paid == 1) {
                             binding.status.text = getText(R.string.current_consultant_paid)
+                            binding.btnChat.isVisible = true
+
                         }
 
                     }

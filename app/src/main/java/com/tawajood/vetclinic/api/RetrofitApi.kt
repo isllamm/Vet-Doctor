@@ -93,11 +93,11 @@ interface RetrofitApi {
         @Field("to") to: String,
     ): Response<MainResponse<Any>>
 
-    @POST("profile/profile/delete-clinic-times/{time_id}")
+    @GET("profile/profile/delete-clinic-time/{id}")
     suspend fun deleteClinicTimes(
         @Header("lang") lang: String,
         @Header("token") token: String,
-        @Path("time_id") time_id: String,
+        @Path("id") id: String,
     ): Response<MainResponse<Any>>
 
 

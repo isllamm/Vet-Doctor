@@ -32,7 +32,7 @@ class SplashActivity : AppCompatActivity() {
 
 
         Glide.with(this)
-            .load(R.drawable.logo)
+            .load(R.drawable.splash)
             .into(binding.logo)
 
         Handler(Looper.myLooper()!!).postDelayed({

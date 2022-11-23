@@ -129,5 +129,6 @@
     <string name="consult_duration">Consult Duration</string>
     <string name="duration1">m</string>
     <string name="image">image</string>
+    <string name="chat1">Chat</string>
 
 </resources>

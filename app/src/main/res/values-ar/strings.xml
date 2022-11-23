@@ -127,5 +127,6 @@
     <string name="Rs">ر.س</string>
     <string name="consult_duration">مدة الاستشارة</string>
     <string name="duration1">دقيقة</string>
-    <string name="image">image</string>
+    <string name="image">صورة</string>
+    <string name="chat1">إجراء محادثة</string>
 </resources>

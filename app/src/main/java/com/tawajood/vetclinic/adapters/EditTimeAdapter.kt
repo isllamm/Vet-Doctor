@@ -7,12 +7,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.tawajood.vetclinic.databinding.ItemClinicTimesEditBinding
 import com.tawajood.vetclinic.databinding.ItemSpecializationEditBinding
 import com.tawajood.vetclinic.pojo.ClinicDay
+import com.tawajood.vetclinic.pojo.ShowTimes
 import com.tawajood.vetclinic.pojo.Specialization
 
 class EditTimeAdapter(private val onDeleteClickListener: OnDeleteClickListener) :
     RecyclerView.Adapter<EditTimeAdapter.EditTimeViewHolder>() {
 
     var clinicDays = mutableListOf<ClinicDay>()
+    var times = mutableListOf<ShowTimes>()
         @SuppressLint("NotifyDataSetChanged")
         set(value) {
             field = value
@@ -20,8 +22,8 @@ class EditTimeAdapter(private val onDeleteClickListener: OnDeleteClickListener) 
         }
 
 
-    fun setTime(clinicDays: MutableList<ClinicDay>) {
-        this.clinicDays = clinicDays
+    fun setTime(times: MutableList<ShowTimes>) {
+        this.times = times
         notifyDataSetChanged()
     }
 
@@ -45,9 +47,9 @@ class EditTimeAdapter(private val onDeleteClickListener: OnDeleteClickListener) 
         holder: EditTimeAdapter.EditTimeViewHolder,
         position: Int
     ) {
-        holder.binding.day.text = clinicDays.elementAt(position).day.name
-        holder.binding.from.text = clinicDays.elementAt(position).times[0].from
-        holder.binding.to.text = clinicDays.elementAt(position).times[0].to
+        holder.binding.day.text = times[position].name
+        holder.binding.from.text = times[position].from
+        holder.binding.to.text = times[position].to
 
         holder.binding.ivDelete.setOnClickListener {
             onDeleteClickListener.onDeleteClickListener(position)
@@ -55,7 +57,7 @@ class EditTimeAdapter(private val onDeleteClickListener: OnDeleteClickListener) 
     }
 
     override fun getItemCount(): Int {
-        return clinicDays.size
+        return times.size
     }
 
     interface OnDeleteClickListener {

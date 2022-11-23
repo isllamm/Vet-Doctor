@@ -1,6 +1,7 @@
 package com.tawajood.vetclinic.ui.main.profile
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,8 @@ import com.tawajood.vetclinic.adapters.SpecializationAdapter
 import com.tawajood.vetclinic.databinding.FragmentPaymentsBinding
 import com.tawajood.vetclinic.databinding.FragmentProfileBinding
 import com.tawajood.vetclinic.pojo.Bank
+import com.tawajood.vetclinic.pojo.ClinicDay
+import com.tawajood.vetclinic.pojo.ShowTimes
 import com.tawajood.vetclinic.ui.main.MainActivity
 import com.tawajood.vetclinic.ui.main.payments.PaymentsViewModel
 import com.tawajood.vetclinic.utils.Resource
@@ -33,6 +36,8 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     private lateinit var spAdapter: SpecializationAdapter
     private lateinit var timesAdapter: ClinicTimesAdapter
     private lateinit var imagesAdapter: ClinicImagesAdapter
+    private var showTimes = mutableListOf<ShowTimes>()
+    private var days = mutableListOf<ClinicDay>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -109,9 +114,14 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                         binding.ccp.setCountryForPhoneCode(profile.country_code.toInt())
                         binding.licenseNumEt.text = profile.registration_number
                         binding.addressEt.text = profile.address
-                        timesAdapter.times = profile.clinic_days
+                        days = profile.clinic_days
                         spAdapter.specialization = profile.specializations
                         imagesAdapter.images = profile.clinic_images
+
+                        if (days.isNotEmpty()) {
+                            showTimes()
+                        }
+
 
                         PrefsHelper.setUserImage(profile.image)
                         PrefsHelper.setUserId(profile.id)
@@ -132,7 +142,17 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         parent.setTitle(getString(R.string.profile))
         parent.showBottomNav(true)
 
+
     }
 
-
+    private fun showTimes() {
+        showTimes.clear()
+        for (item in days) {
+            for (time in item.times) {
+                showTimes.add(ShowTimes(time.id, item.day.name, time.from, time.to))
+            }
+        }
+        timesAdapter.times = showTimes
+        //Log.d("islam", "showTimes: " + showTimes)
+    }
 }

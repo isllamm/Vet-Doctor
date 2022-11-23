@@ -53,6 +53,7 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
     private lateinit var editSpecializationAdapter: EditSpecializationAdapter
     private lateinit var editTimeAdapter: EditTimeAdapter
     private var times = mutableListOf<ClinicDay>()
+    private var showTimes = mutableListOf<ShowTimes>()
     private var image: File? = null
     private lateinit var mFusedLocationClient: FusedLocationProviderClient
     private lateinit var currentLatLng: LatLng
@@ -75,14 +76,22 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
     private fun setupTimes() {
         editTimeAdapter = EditTimeAdapter(object : EditTimeAdapter.OnDeleteClickListener {
             override fun onDeleteClickListener(position: Int) {
-                viewModel.deleteClinicTimes(times[position].times[0].id.toString())
+                if (showTimes.isNotEmpty()) {
+                    showTimes.remove(showTimes.elementAt(position))
+                    editTimeAdapter.setTime(showTimes)
+                    viewModel.deleteClinicTimes(showTimes[position].id.toString())
+
+                    if (showTimes.isEmpty()) {
+                        binding.rvTimes.isVisible = false
+                    }
+                }
             }
 
         })
-        if (times.isNotEmpty()) {
+        if (showTimes.isNotEmpty()) {
             binding.rvTimes.isVisible = true
         }
-        editTimeAdapter.setTime(times)
+        editTimeAdapter.setTime(showTimes)
         binding.rvTimes.adapter = editTimeAdapter
     }
 
@@ -233,7 +242,10 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
                         editSpecializationAdapter.specializations = specializations
 
                         times = it.data.profile.clinic_days
-                        editTimeAdapter.clinicDays = times
+                        //editTimeAdapter.clinicDays = times
+                        if (times.isNotEmpty()) {
+                            showTimes()
+                        }
 
                     }
                 }
@@ -321,6 +333,16 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
     private fun setupUI() {
         parent.showBottomNav(false)
         parent.setTitle(getString(R.string.profile))
+    }
+
+    private fun showTimes() {
+        showTimes.clear()
+        for (item in times) {
+            for (time in item.times) {
+                showTimes.add(ShowTimes(time.id, item.day.name, time.from, time.to))
+            }
+        }
+        editTimeAdapter.times = showTimes
     }
 
     private val imagePermissionResult = registerForActivityResult(
