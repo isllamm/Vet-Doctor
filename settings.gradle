@@ -27,5 +27,5 @@ dependencyResolutionManagement {
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
-rootProject.name = "Vet Clinic"
+rootProject.name = "Vet Doctor"
 include ':app'

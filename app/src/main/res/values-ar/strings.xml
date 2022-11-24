@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Vet Clinic</string>
+    <string name="app_name">Vet Doctor</string>
     <string name="welcome">مرحباً بك</string>
     <string name="login">تسجيل دخول</string>
     <string name="register">عيادة جديدة</string>
@@ -129,4 +129,6 @@
     <string name="duration1">دقيقة</string>
     <string name="image">صورة</string>
     <string name="chat1">إجراء محادثة</string>
+    <string name="share_with">المشاركة مع</string>
+
 </resources>

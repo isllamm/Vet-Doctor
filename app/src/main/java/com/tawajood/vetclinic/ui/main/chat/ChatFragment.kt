@@ -39,7 +39,7 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
         parent = requireActivity() as MainActivity
         requestId = requireArguments().getString(Constants.CONSULTANT_ID).toString()
 
-        viewModel.getChat(requestId, "12")
+        viewModel.getChat(requestId, PrefsHelper.getUserId().toString())
 
         setupUI()
         observeData()
@@ -49,14 +49,14 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
 
     private fun onClick() {
         binding.refresher.setOnRefreshListener {
-            viewModel.getChat(requestId, "12")
+            viewModel.getChat(requestId, PrefsHelper.getUserId().toString())
         }
 
         binding.sendImg.setOnClickListener {
             if (!TextUtils.isEmpty(binding.messageEt.text) || image != null) {
                 viewModel.sendMessage(
                     requestId,
-                    "12",
+                    PrefsHelper.getUserId().toString(),
                     binding.messageEt.text.toString(),
                     "0"
                 )

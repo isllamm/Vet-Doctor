@@ -89,22 +89,20 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         }
 
         binding.clShare.setOnClickListener {
-            val intent = Intent()
-            intent.action = Intent.ACTION_SEND
-            intent.type = "text/plain"
-            intent.putExtra(
-                Intent.EXTRA_TEXT,
-                "https://play.google.com/store/apps/details?id=com.tawajood.vetclinic"
-            )
-            startActivity(Intent.createChooser(intent, "Share With"))
+            val shareApp: String =
+                "Hey friend, I think you need to get this awesome app from play story : " +
+                        "https://play.google.com/store/apps/details?id=com.tawajood.vetclinic"
+            val shareIntent = Intent()
+            shareIntent.action = Intent.ACTION_SEND
+            shareIntent.type = "text/plain"
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareApp)
+            shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            startActivity(Intent.createChooser(shareIntent, getString(R.string.share_with)))
         }
 
         binding.clRate.setOnClickListener {
-            parent.navController.navigate(
-                R.id.chatFragment,
-                bundleOf(Constants.CONSULTANT_ID to "1")
-            )
-            //rateApp()
+
+            rateApp()
         }
     }
 
