@@ -58,7 +58,7 @@ constructor(
         }
     }
 
-     fun getEditProfile() = viewModelScope.launch {
+     private fun getEditProfile() = viewModelScope.launch {
         try {
             _editProfile.emit(Resource.Loading())
             val response = handleResponse(repository.getEditProfile())

@@ -63,7 +63,7 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
         binding = FragmentEditProfileBinding.bind(requireView())
         parent = requireActivity() as MainActivity
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
-        viewModel.getEditProfile()
+
         setupUI()
         onClick()
         observeData()
@@ -226,6 +226,7 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
                         binding.durationEt.setText(profile.consultation_duration)
                         binding.detailsEt.setText(profile.details)
                         specializationNames = it.data.specializations
+
                         specializationNames.forEach { specializationNames ->
                             speAdapter.add(specializationNames.name)
                         }
@@ -242,7 +243,6 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
                         editSpecializationAdapter.specializations = specializations
 
                         times = it.data.profile.clinic_days
-                        //editTimeAdapter.clinicDays = times
                         if (times.isNotEmpty()) {
                             showTimes()
                         }
