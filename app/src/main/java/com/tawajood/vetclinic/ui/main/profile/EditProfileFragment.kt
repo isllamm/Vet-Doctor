@@ -57,6 +57,7 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
     private var image: File? = null
     private lateinit var mFusedLocationClient: FusedLocationProviderClient
     private lateinit var currentLatLng: LatLng
+    private lateinit var profile: ProfileResponse
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -172,13 +173,21 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
                     id: Long
                 ) {
 
-
                     if (specializationsTemp.isNotEmpty()) {
-
                         specializations.add(specializationsTemp[position])
                         editSpecializationAdapter.setSpecialization(specializations)
-                    }
+                    } else {
+                        specializations.add(
+                            Specialization(
+                                0,
+                                profile.id,
+                                specializationNames[position].id,
+                                specializationNames[position]
+                            )
+                        )
+                        editSpecializationAdapter.setSpecialization(specializations)
 
+                    }
 
                 }
 
@@ -213,7 +222,7 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
                     }
                     is Resource.Loading -> parent.showLoading()
                     is Resource.Success -> {
-                        val profile = it.data!!.profile
+                        profile = it.data!!.profile
                         Glide.with(requireContext()).load(profile.image).into(binding.imgClinic)
                         binding.tvName.text = profile.name
                         binding.clinicNameEt.setText(profile.name)
@@ -236,11 +245,14 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
                             daysAdapter.add(days.name)
                         }
 
-                        specializations =
-                            it.data.profile.specializations.toSet() as MutableSet<Specialization>
-                        specializationsTemp = it.data.profile.specializations
-
+                        if (it.data.profile.specializations.isNotEmpty()) {
+                            specializations =
+                                it.data.profile.specializations.toSet() as MutableSet<Specialization>
+                            specializationsTemp = it.data.profile.specializations
+                        }
                         editSpecializationAdapter.specializations = specializations
+
+
 
                         times = it.data.profile.clinic_days
                         if (times.isNotEmpty()) {
