@@ -2,16 +2,13 @@ package com.tawajood.vetclinic.ui.auth.fragments
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.tawajood.vetclinic.R
+import com.tawajood.vetclinic.data.PrefsHelper
 import com.tawajood.vetclinic.databinding.FragmentLoginBinding
-import com.tawajood.vetclinic.pojo.User
 import com.tawajood.vetclinic.ui.auth.AuthActivity
 import com.tawajood.vetclinic.ui.auth.AuthViewModel
 import com.tawajood.vetclinic.utils.Resource

@@ -1,8 +1,7 @@
-
+package com.tawajood.vetclinic.data
 import android.content.Context
 import android.content.SharedPreferences
 import com.tawajood.vetclinic.utils.Constants
-import java.io.File
 
 object PrefsHelper {
 

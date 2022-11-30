@@ -1,6 +1,6 @@
 package com.tawajood.vetclinic.ui.main.chat
 
-import PrefsHelper
+import com.tawajood.vetclinic.data.PrefsHelper
 import ToastUtils
 import android.os.Bundle
 import android.text.TextUtils

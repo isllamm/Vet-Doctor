@@ -1,12 +1,8 @@
 package com.tawajood.vetclinic.ui.main.profile
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
@@ -14,13 +10,11 @@ import com.tawajood.vetclinic.R
 import com.tawajood.vetclinic.adapters.ClinicImagesAdapter
 import com.tawajood.vetclinic.adapters.ClinicTimesAdapter
 import com.tawajood.vetclinic.adapters.SpecializationAdapter
-import com.tawajood.vetclinic.databinding.FragmentPaymentsBinding
+import com.tawajood.vetclinic.data.PrefsHelper
 import com.tawajood.vetclinic.databinding.FragmentProfileBinding
-import com.tawajood.vetclinic.pojo.Bank
 import com.tawajood.vetclinic.pojo.ClinicDay
 import com.tawajood.vetclinic.pojo.ShowTimes
 import com.tawajood.vetclinic.ui.main.MainActivity
-import com.tawajood.vetclinic.ui.main.payments.PaymentsViewModel
 import com.tawajood.vetclinic.utils.Resource
 import com.tawajood.vetclinic.utils.showAlertDialog
 import dagger.hilt.android.AndroidEntryPoint

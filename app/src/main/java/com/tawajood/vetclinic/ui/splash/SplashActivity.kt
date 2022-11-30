@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.maps.model.LatLng
 import com.tawajood.vetclinic.R
+import com.tawajood.vetclinic.data.PrefsHelper
 import com.tawajood.vetclinic.databinding.ActivitySplashBinding
 import com.tawajood.vetclinic.ui.auth.AuthActivity
 import com.tawajood.vetclinic.ui.main.MainActivity

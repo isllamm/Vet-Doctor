@@ -4,13 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.tawajood.vetclinic.R
+import com.tawajood.vetclinic.data.PrefsHelper
 import com.tawajood.vetclinic.databinding.ActivityMainBinding
 import com.tawajood.vetclinic.ui.auth.AuthActivity
 import com.tawajood.vetclinic.utils.LoadingUtil

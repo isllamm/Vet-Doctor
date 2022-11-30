@@ -6,9 +6,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
@@ -19,7 +17,7 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.gms.maps.model.LatLng
 import com.tawajood.vetclinic.R
-import com.tawajood.vetclinic.databinding.FragmentLoginBinding
+import com.tawajood.vetclinic.data.PrefsHelper
 import com.tawajood.vetclinic.databinding.FragmentRegisterBinding
 import com.tawajood.vetclinic.pojo.RegisterBody
 import com.tawajood.vetclinic.ui.auth.AuthActivity

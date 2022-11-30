@@ -1,6 +1,6 @@
 package com.tawajood.vetclinic.repository
 
-import PrefsHelper
+import com.tawajood.vetclinic.data.PrefsHelper
 import com.tawajood.vetclinic.api.RetrofitApi
 import com.tawajood.vetclinic.pojo.MainResponse
 import com.tawajood.vetclinic.pojo.RegisterBody
@@ -9,9 +9,7 @@ import com.tawajood.vetclinic.pojo.UpdatedBody
 import com.tawajood.vetclinic.utils.toMap
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
-import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.Response
 import javax.inject.Inject
 

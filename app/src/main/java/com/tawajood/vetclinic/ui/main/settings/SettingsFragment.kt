@@ -3,10 +3,9 @@ package com.tawajood.vetclinic.ui.main.settings
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.tawajood.vetclinic.R
+import com.tawajood.vetclinic.data.PrefsHelper
 import com.tawajood.vetclinic.databinding.FragmentSettingsBinding
 import com.tawajood.vetclinic.ui.main.MainActivity
 import com.tawajood.vetclinic.utils.Constants
