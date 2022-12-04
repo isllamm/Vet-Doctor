@@ -37,7 +37,6 @@
             android:background="@drawable/bottom_bg"
             app:itemIconTint="@drawable/bottom_nav_bg"
             app:itemTextColor="@drawable/bottom_nav_bg"
-            app:labelVisibilityMode="labeled"
             app:menu="@menu/main_menu" />
     </RelativeLayout>
 

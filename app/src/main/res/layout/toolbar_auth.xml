@@ -21,7 +21,7 @@
         android:layout_height="@dimen/_16sdp"
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginTop="@dimen/_28sdp"
-        android:src="@drawable/ic_arrow_back"
+        android:src="@drawable/icon_ionic_ios_arrow_down"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
