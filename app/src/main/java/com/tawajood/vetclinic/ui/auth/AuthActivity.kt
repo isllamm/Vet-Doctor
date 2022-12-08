@@ -54,7 +54,7 @@ class AuthActivity : AppCompatActivity() {
 
     private fun onClick() {
         binding.toolbar.ivBack.setOnClickListener {
-            onBackPressed()
+            navController.popBackStack()
         }
     }
 

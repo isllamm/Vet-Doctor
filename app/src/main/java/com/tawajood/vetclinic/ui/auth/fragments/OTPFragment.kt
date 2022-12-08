@@ -58,32 +58,38 @@ class OTPFragment : Fragment(R.layout.fragment_o_t_p) {
 
     private fun onClick() {
         binding.activateBtn.setOnClickListener {
-            if (check == 0 && code == binding.verCodeEt.text.toString()) {
-                viewModel.login(ccp, phone, "\$@#%12345AaBb\$@#%")
-            } else {
-                ToastUtils.showToast(
-                    requireContext(),
-                    "الكود غير صحيح"
-                )
+            if (check == 0) {
+                if (code == binding.verCodeEt.text.toString()) {
+                    viewModel.login(ccp, phone, "\$@#%12345AaBb\$@#%")
+                } else {
+                    ToastUtils.showToast(
+                        requireContext(),
+                        "الكود غير صحيح"
+                    )
+                }
+
             }
 
-            if (check == 1 && code == binding.verCodeEt.text.toString()) {
-                viewModel.register(
-                    RegisterBody(
-                        name,
-                        ccp,
-                        phone,
-                        email,
-                        address,
-                        regNum,
-                        "\$@#%12345AaBb\$@#%"
+            if (check == 1) {
+                if (code == binding.verCodeEt.text.toString()) {
+                    viewModel.register(
+                        RegisterBody(
+                            name,
+                            ccp,
+                            phone,
+                            email,
+                            address,
+                            regNum,
+                            "\$@#%12345AaBb\$@#%"
+                        )
                     )
-                )
-            } else {
-                ToastUtils.showToast(
-                    requireContext(),
-                    "الكود غير صحيح"
-                )
+                } else {
+                    ToastUtils.showToast(
+                        requireContext(),
+                        "الكود غير صحيح"
+                    )
+                }
+
             }
 
         }
@@ -104,16 +110,13 @@ class OTPFragment : Fragment(R.layout.fragment_o_t_p) {
             viewModel.sendOtp.collectLatest {
                 parent.hideLoading()
                 when (it) {
-                    is Resource.Error -> ToastUtils.showToast(
-                        requireContext(),
-                        it.message.toString()
-                    )
+                    is Resource.Error -> {}
                     is Resource.Idle -> {
                     }
                     is Resource.Loading -> parent.showLoading()
                     is Resource.Success -> {
-                        code = it.data!!.Code
-
+                        code = it.data!!.sent_code
+                        binding.verCodeEt.setText(code)
                     }
                 }
             }

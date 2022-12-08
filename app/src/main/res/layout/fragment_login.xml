@@ -43,7 +43,7 @@
             android:background="@drawable/flag_transparent"
             android:gravity="start|center"
             app:ccpDialog_showTitle="false"
-            app:ccp_defaultNameCode="eg"
+            app:ccp_defaultNameCode="sa"
             app:ccp_showNameCode="false"
             app:ccp_textSize="@dimen/_11ssp" />
 
@@ -137,6 +137,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginTop="@dimen/_8sdp"
+        android:visibility="gone"
         android:text="@string/forgot_password"
         android:textColor="@color/light_black"
         android:textSize="@dimen/_10ssp"

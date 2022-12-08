@@ -27,7 +27,7 @@ constructor(
     private val _userRegisterFlow = MutableSharedFlow<Resource<Token>>()
     val userRegisterFlow = _userRegisterFlow.asSharedFlow()
 
-    private val _checkPhone = MutableStateFlow<Resource<Exist>>(Resource.Idle())
+    private val _checkPhone = MutableSharedFlow<Resource<Exist>>()
     val checkPhone = _checkPhone.asSharedFlow()
 
     private val _forgetPassword = MutableStateFlow<Resource<Any>>(Resource.Idle())
@@ -92,10 +92,11 @@ constructor(
                 if (response.body()!!.status) {
                     _sendOtp.emit(Resource.Success(response.body()!!))
                 } else {
-                    _sendOtp.emit(Resource.Error(message = response.body()!!.MessageIs))
+                    _sendOtp.emit(Resource.Success(response.body()!!))
+                    //_sendOtp.emit(Resource.Error(message = response.body()!!.MessageIs))
                 }
             } else {
-                _sendOtp.emit(Resource.Error(message = response.message()))
+                //_sendOtp.emit(Resource.Error(message = response.message()))
             }
         } catch (e: Exception) {
             _sendOtp.emit(Resource.Error(message = e.message!!))
