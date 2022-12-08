@@ -40,6 +40,14 @@ interface RetrofitApi {
     ): Response<MainResponse<Exist>>
 
     @FormUrlEncoded
+    @POST("auth/send-otp")
+    suspend fun sendOtp(
+        @Header("lang") lang: String,
+        @Field("country_code") countryCode: String,
+        @Field("phone") phone: String,
+    ): Response<OtpResponse>
+
+    @FormUrlEncoded
     @POST("auth/forget-password")
     suspend fun forgetPassword(
         @Header("lang") lang: String,

@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -22,6 +23,7 @@ import com.tawajood.vetclinic.databinding.FragmentRegisterBinding
 import com.tawajood.vetclinic.pojo.RegisterBody
 import com.tawajood.vetclinic.ui.auth.AuthActivity
 import com.tawajood.vetclinic.ui.auth.AuthViewModel
+import com.tawajood.vetclinic.utils.Constants
 import com.tawajood.vetclinic.utils.Resource
 import com.tawajood.vetclinic.utils.getAddressForTextView
 import dagger.hilt.android.AndroidEntryPoint
@@ -55,7 +57,6 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     private val locationPermissionResult = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { result ->
-        Log.d("islam", "Request Per: Hi")
         if (result) {
             getCurrentLocation()
         } else {
@@ -76,7 +77,6 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             } else {
                 parent.showLoading()
                 locationPermissionResult.launch(Manifest.permission.ACCESS_FINE_LOCATION)
-                Log.d("islam", "onClick: Hi")
             }
         }
 
@@ -84,27 +84,27 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         binding.btnCheck.setOnClickListener {
 
             if (validate()) {
-                registerBody = RegisterBody(
-                    binding.clinicNameEt.text.toString(),
-                    "+" + binding.ccp.selectedCountryCode.toString(),
-                    binding.phoneEt.text.toString(),
-                    binding.emailEt.text.toString(),
-                    binding.addressEt.text.toString(),
-                    binding.licenseNumEt.text.toString(),
-                    binding.passwordEt.text.toString()
+                parent.navController.navigate(
+                    R.id.OTPFragment,
+                    bundleOf(
+                        Constants.USERNAME to binding.clinicNameEt.text.toString(),
+                        Constants.PHONE to binding.phoneEt.text.toString(),
+                        Constants.LOGIN to 1,
+                        Constants.COUNTRY_CODE to "+" + binding.ccp.selectedCountryCode.toString(),
+                        Constants.EMAIL to binding.emailEt.text.toString(),
+                        Constants.ADDRESS to binding.addressEt.text.toString(),
+                        Constants.REG_NUM to binding.licenseNumEt.text.toString(),
+                    )
                 )
-            }
-            viewModel.register(registerBody)
 
-            /*viewModel.checkPhone(
-                "+" + binding.ccp.selectedCountryCode.toString(),
-                binding.phoneEt.text.toString()
-            )*/
+
+            }
+
         }
     }
 
     private fun setupUI() {
-        parent.imInOTP(false)
+        parent.imInOTP(false, "")
     }
 
     private fun validate(): Boolean {
@@ -121,11 +121,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         }
 
 
-        if (TextUtils.isEmpty(binding.passwordEt.text)) {
-            ToastUtils.showToast(requireContext(), getString(R.string.password_is_required))
 
-            return false
-        }
         if (TextUtils.isEmpty(binding.emailEt.text)) {
             ToastUtils.showToast(requireContext(), getString(R.string.email_required))
 
@@ -141,19 +137,8 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
             return false
         }
-        if (binding.passwordEt.text.toString() != binding.cPasswordEt.text.toString()) {
-            ToastUtils.showToast(requireContext(), getString(R.string.password_not_match))
 
-            return false
-        }
 
-        if (binding.passwordEt.text.toString().length < 6) {
-            ToastUtils.showToast(
-                requireContext(),
-                getString(R.string.short_pass)
-            )
-            return false
-        }
 
         if (!binding.switch1.isChecked) {
             return false
@@ -166,49 +151,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     }
 
     private fun observeData() {
-        lifecycleScope.launchWhenStarted {
-            viewModel.checkPhone.collectLatest {
-                parent.hideLoading()
-                when (it) {
-                    is Resource.Error -> ToastUtils.showToast(
-                        requireContext(),
-                        it.message.toString()
-                    )
-                    is Resource.Idle -> {
-                    }
-                    is Resource.Loading -> parent.showLoading()
-                    is Resource.Success -> {
-                        //Log.d("islam", "observeData: " + it.message)
-                        if (it.data != null) {
-                            ToastUtils.showToast(
-                                requireContext(),
-                                it.data.message
-                            )
-                        }
-                    }
-                }
-            }
-        }
-        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            viewModel.userRegisterFlow.collectLatest {
-                parent.hideLoading()
-                when (it) {
-                    is Resource.Error -> ToastUtils.showToast(
-                        requireContext(),
-                        it.message.toString()
-                    )
-                    is Resource.Idle -> {}
-                    is Resource.Loading -> parent.showLoading()
-                    is Resource.Success -> {
-                        PrefsHelper.setToken(it.data!!.token)
 
-                        PrefsHelper.setFirst(false)
-
-                        parent.gotoMain()
-                    }
-                }
-            }
-        }
     }
 
     private fun getCurrentLocation() {

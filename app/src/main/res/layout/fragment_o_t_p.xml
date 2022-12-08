@@ -38,7 +38,7 @@
                 app:bottomLineHeight="0.5dp"
                 app:bottomLineNormalColor="@color/grey_800"
                 app:bottomLineSelectedColor="@color/grey_800"
-                app:figures="5"
+                app:figures="4"
                 app:selectedBackgroundColor="@color/transparent"
                 app:verCodeMargin="@dimen/_6sdp" />
         </com.google.android.material.card.MaterialCardView>

@@ -33,6 +33,9 @@ constructor(
     private val _forgetPassword = MutableStateFlow<Resource<Any>>(Resource.Idle())
     val forgetPassword = _forgetPassword.asSharedFlow()
 
+    private val _sendOtp = MutableStateFlow<Resource<OtpResponse>>(Resource.Idle())
+    val sendOtp = _sendOtp.asSharedFlow()
+
 
     fun login(countryCode: String, phone: String, password: String) = viewModelScope.launch {
         try {
@@ -78,6 +81,24 @@ constructor(
             }
         } catch (e: Exception) {
             _checkPhone.emit(Resource.Error(message = e.message!!))
+        }
+    }
+
+    fun sendOtp(countryCode: String, phone: String) = viewModelScope.launch {
+        try {
+            _sendOtp.emit(Resource.Loading())
+            val response = repository.sendOtp(countryCode, phone)
+            if (response.isSuccessful) {
+                if (response.body()!!.status) {
+                    _sendOtp.emit(Resource.Success(response.body()!!))
+                } else {
+                    _sendOtp.emit(Resource.Error(message = response.body()!!.MessageIs))
+                }
+            } else {
+                _sendOtp.emit(Resource.Error(message = response.message()))
+            }
+        } catch (e: Exception) {
+            _sendOtp.emit(Resource.Error(message = e.message!!))
         }
     }
 

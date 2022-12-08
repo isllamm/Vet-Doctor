@@ -64,13 +64,14 @@ class AuthActivity : AppCompatActivity() {
         navController = navHostFragment.navController
     }
 
-    fun imInOTP(isVisible: Boolean){
-        binding.toolbar.logo.isVisible= !isVisible
-        binding.toolbar.hello.isVisible= !isVisible
-        binding.llAuth.isVisible= !isVisible
-        binding.toolbar.tvEnterCode.isVisible= isVisible
-        binding.toolbar.tvNumber.isVisible= isVisible
-        binding.toolbar.tvMessageSent.isVisible= isVisible
+    fun imInOTP(isVisible: Boolean, num: String) {
+        binding.toolbar.logo.isVisible = !isVisible
+        binding.toolbar.hello.isVisible = !isVisible
+        binding.llAuth.isVisible = !isVisible
+        binding.toolbar.tvEnterCode.isVisible = isVisible
+        binding.toolbar.tvNumber.isVisible = isVisible
+        binding.toolbar.tvNumber.text = num
+        binding.toolbar.tvMessageSent.isVisible = isVisible
 
     }
 

@@ -162,93 +162,7 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
 
-            android:layout_marginStart="@dimen/_12sdp"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:text="@string/password"
-            android:textColor="@color/light_black"
-            android:textSize="@dimen/_12ssp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ll_email" />
-
-        <LinearLayout
-            android:id="@+id/ll_password"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:background="@drawable/full_border_radius_12"
-            android:orientation="horizontal"
-            android:weightSum="5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView12">
-
-
-            <EditText
-                android:id="@+id/password_et"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@null"
-                android:hint="@string/password"
-                android:importantForAutofill="no"
-                android:inputType="textPassword"
-                android:paddingHorizontal="@dimen/_8sdp"
-                android:textAlignment="viewStart"
-                android:textColor="@color/light_black"
-                android:textDirection="ltr"
-                android:textSize="@dimen/_12ssp" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView112"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginStart="@dimen/_12sdp"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:text="@string/confirm_password"
-            android:textColor="@color/light_black"
-            android:textSize="@dimen/_12ssp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ll_password" />
-
-        <LinearLayout
-            android:id="@+id/ll_Cpassword"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:background="@drawable/full_border_radius_12"
-            android:orientation="horizontal"
-            android:weightSum="5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView112">
-
-
-            <EditText
-                android:id="@+id/cPassword_et"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@null"
-                android:hint="@string/confirm_password"
-                android:importantForAutofill="no"
-                android:inputType="textPassword"
-                android:paddingHorizontal="@dimen/_8sdp"
-                android:textAlignment="viewStart"
-                android:textColor="@color/light_black"
-                android:textDirection="ltr"
-                android:textSize="@dimen/_12ssp" />
-
-        </LinearLayout>
 
         <TextView
             android:id="@+id/textView3"
@@ -261,7 +175,7 @@
             android:textColor="@color/light_black"
             android:textSize="@dimen/_12ssp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ll_Cpassword" />
+            app:layout_constraintTop_toBottomOf="@+id/ll_email" />
 
         <LinearLayout
             android:id="@+id/ll_license_num"

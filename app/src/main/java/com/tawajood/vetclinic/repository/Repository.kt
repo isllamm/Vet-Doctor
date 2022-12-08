@@ -27,6 +27,9 @@ constructor(private val api: RetrofitApi) {
     suspend fun checkPhone(countryCode: String, phone: String, security: String) =
         api.checkPhone(PrefsHelper.getLanguage(), countryCode, phone, security)
 
+    suspend fun sendOtp(countryCode: String, phone: String) =
+        api.sendOtp(PrefsHelper.getLanguage(), countryCode, phone)
+
     suspend fun forgetPassword(
         countryCode: String,
         phone: String,

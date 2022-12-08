@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.tawajood.vetclinic.R
@@ -11,6 +12,7 @@ import com.tawajood.vetclinic.data.PrefsHelper
 import com.tawajood.vetclinic.databinding.FragmentLoginBinding
 import com.tawajood.vetclinic.ui.auth.AuthActivity
 import com.tawajood.vetclinic.ui.auth.AuthViewModel
+import com.tawajood.vetclinic.utils.Constants
 import com.tawajood.vetclinic.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -39,18 +41,18 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding.btnCheck.setOnClickListener {
             if (validate()) {
 
-                viewModel.login(
+                viewModel.checkPhone(
                     "+" + binding.ccp.selectedCountryCode.toString(),
                     binding.phoneEt.text.toString(),
-                    binding.passwordEt.text.toString()
-                )
+
+                    )
             }
 
         }
     }
 
     private fun setupUI() {
-        parent.imInOTP(false)
+        parent.imInOTP(false,"")
     }
 
     private fun validate(): Boolean {
@@ -60,12 +62,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             return false
         }
 
-        if (TextUtils.isEmpty(binding.passwordEt.text)) {
 
-            ToastUtils.showToast(requireContext(), getString(R.string.password_is_required))
-
-            return false
-        }
 
         return true
     }
@@ -73,7 +70,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private fun observeData() {
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            viewModel.userLoginFlow.collectLatest {
+            viewModel.checkPhone.collectLatest {
                 parent.hideLoading()
                 when (it) {
                     is Resource.Error -> ToastUtils.showToast(
@@ -85,11 +82,17 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     is Resource.Loading -> parent.showLoading()
                     is Resource.Success -> {
 
-                        PrefsHelper.setToken(it.data!!.token)
 
                         PrefsHelper.setFirst(false)
 
-                        parent.gotoMain()
+                        parent.navController.navigate(
+                            R.id.action_loginFragment_to_OTPFragment,
+                            bundleOf(
+                                Constants.PHONE to binding.phoneEt.text.toString(),
+                                Constants.LOGIN to 0,
+                                Constants.COUNTRY_CODE to "+" + binding.ccp.selectedCountryCode.toString()
+                            )
+                        )
                     }
                 }
             }
